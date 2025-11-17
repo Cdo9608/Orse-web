@@ -52,7 +52,7 @@ body {
 .hero {
   position:relative;
   min-height:100vh;
-  background:url("imgs/fondo_verde.png") center / cover no-repeat fixed;
+  background:url("imgs/me.png") center / cover no-repeat fixed;
   display:flex;
   justify-content:center;
   align-items:center;
