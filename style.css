@@ -201,3 +201,65 @@ body {
 
   /* Aquí luego agregamos menú hamburguesa */
 }
+
+
+/* ---------------- ABOUT SECTION ---------------- */
+
+.about {
+  padding: 120px 0;
+  background: #000;
+  color: #fff;
+}
+
+.about-inner {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.about-img img {
+  width: 420px;
+  max-width: 100%;
+  border-radius: 14px;
+  object-fit: cover;
+  box-shadow: 0 0 20px rgba(255,255,255,0.06);
+}
+
+.about-text {
+  flex: 1;
+  max-width: 600px;
+}
+
+.about-text h2 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 42px;
+  font-weight: 800;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+}
+
+.about-text p {
+  font-size: 16px;
+  line-height: 1.7;
+  opacity: 0.9;
+  margin-bottom: 18px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .about-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-img img {
+    width: 70%;
+  }
+
+  .about-text h2 {
+    font-size: 34px;
+  }
+}
+
+
