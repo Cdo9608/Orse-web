@@ -1,159 +1,182 @@
-* { margin:0; padding:0; box-sizing:border-box; }
+/* === RESET === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   font-family: "Poppins", sans-serif;
-  background:#000;
-  color:#fff;
+  background: #111;
+  color: #fff;
+  overflow-x: hidden;
 }
 
-/* -------- HEADER -------- */
-.site-header {
-  position:fixed;
-  top:0; left:0; right:0;
-  height:110px;
-  display:flex;
-  align-items:center;
-  z-index:999;
-  background:transparent;
-}
-
-.container {
-  width:90%;
-  max-width:1300px;
-  margin:0 auto;
-}
-
-.header-inner {
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-
-.logo img {
-    height: 100px; 
-    width: auto;
-}
-
-/* NAV */
-.main-nav ul {
-  display:flex;
-  gap:24px;
-  list-style:none;
-}
-
-.main-nav a {
-  text-decoration:none;
-  color:#fff;
-  font-size:13px;
-  letter-spacing:1px;
-  text-transform:uppercase;
-}
-
-/* -------- HERO -------- */
+/* === HERO SECTION === */
 .hero {
   position: relative;
-  min-height: 100vh;
-  /* CAMBIO AQUI: Ajusta el segundo valor (el porcentaje) para mover el fondo */
-  background: url("imgs/fondo.jpg") center 35% / cover no-repeat fixed; 
-  /* Puedes probar con 30%, 35%, 40% hasta que encuentres el punto ideal */
+  height: 100vh;
+  width: 100%;
+  background: url("assets/img/banner/hero-bg.jpg") no-repeat center center/cover;
+  display: flex;
+  align-items: center;
+  padding: 0 8%;
+}
+
+/* === LOGO MÁS GRANDE === */
+.logo img {
+  width: 170px !important;   /* AUMENTADO */
+  height: auto;
+}
+
+/* === CONTENIDO DEL HERO === */
+.hero-content {
+  max-width: 800px;
+  z-index: 2;
+}
+
+.hero-content h1 {
+  font-size: 72px;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+/* Frases animadas más suaves */
+.word-rotate span {
+  opacity: 0.85;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* TEXTO PRINCIPAL REEMPLAZADO */
+.hero-content p {
+  font-size: 22px;
+  font-weight: 300;
+  margin-top: 10px;
+  max-width: 600px;
+}
+
+/* === BOTONES === */
+.btn-primary {
+  background: #ff5c00;
+  padding: 12px 32px;
+  border-radius: 50px;
+  color: #fff;
+  font-weight: 600;
+  transition: 0.3s;
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  background: #ff3600;
+}
+
+/* === ICONOS REDES === */
+.social-icons {
+  margin-top: 30px;
+  display: flex;
+  gap: 18px;
+}
+
+.social-icons a {
+  width: 45px;
+  height: 45px;
   display: flex;
   justify-content: center;
   align-items: center;
+  border: 1px solid rgba(255,255,255,0.5);
+  border-radius: 50%;
+  transition: 0.3s;
+  font-size: 20px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.social-icons a:hover {
+  background: #ff5c00;
+  border-color: #ff5c00;
+}
+
+/* === SCROLL DOWN ALISON STYLE === */
+.scroll-container {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
   text-align: center;
-  padding: 150px 20px 80px;
+  z-index: 10;
+  cursor: pointer;
 }
 
-
-.hero::after {
-  content:"";
-  position:absolute;
-  inset:0;
-  background:rgba(0,0,0,0.25); 
-  z-index:1;
+.scroll-container span {
+  color: #fff;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  display: block;
+  margin-bottom: 12px;
+  opacity: 0.8;
 }
 
-.hero-content {
-  position:relative;
-  z-index:2;
+/* Línea vertical animada */
+.scroll-line {
+  width: 1px;
+  height: 50px;
+  background: rgba(255,255,255,0.6);
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;
 }
 
-.hero-meta {
-  font-size:12px;
-  letter-spacing:3px;
-  margin-bottom:20px;
-  opacity:.9;
+.scroll-line::after {
+  content: "";
+  position: absolute;
+  top: -40px;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background: #fff;
+  opacity: 1;
+  animation: scrollAnim 1.5s infinite;
 }
 
-/* TITULO */
-.hero-title {
-  font-family:"Montserrat", sans-serif;
-  font-size:80px;
-  line-height:0.9;
-  font-weight:900;
-  text-transform:uppercase;
-  margin-bottom:20px;
+@keyframes scrollAnim {
+  0%   { top: -40px; opacity: 0; }
+  30%  { opacity: 1; }
+  100% { top: 60px; opacity: 0; }
 }
 
-/* Animación vertical (estilo Alison) */
-.rotating {
-  display:inline-block;
-  transition: transform .6s ease, opacity .6s ease;
-  will-change: transform, opacity;
+/* === RESPONSIVE === */
+@media (max-width: 992px) {
+  .hero-content h1 {
+    font-size: 55px;
+  }
+  .logo img {
+    width: 150px !important;
+  }
 }
 
-.hero-sub {
-  font-size:15px;
-  opacity:.85;
-  margin-bottom:30px;
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 44px;
+  }
+  .hero-content p {
+    font-size: 18px;
+  }
+  .logo img {
+    width: 135px !important;
+  }
 }
 
-/* Redes */
-.hero-social {
-  display:flex;
-  justify-content:center;
-  gap:15px;
-}
-
-.hero-social a {
-  color:#fff;
-  font-size:15px;
-  opacity:.8;
-}
-
-.hero-social a:hover { opacity:1; }
-
-/* Scroll indicator */
-.scroll-indicator {
-  position:absolute;
-  bottom:25px;
-  left:50%;
-  transform:translateX(-50%);
-  text-decoration:none;
-  color:#fff;
-  font-size:12px;
-  letter-spacing:2px;
-  opacity:.9;
-  z-index:3;
-}
-
-.scroll-indicator i {
-  display:block;
-  margin-top:6px;
-  font-size:14px;
-  animation:bounce 1.6s infinite;
-}
-
-@keyframes bounce {
-  0%,100% { transform:translateY(0); }
-  50% { transform:translateY(6px); }
-}
-
-/* -------- Responsive -------- */
-@media (max-width:900px){
-  .hero-title { font-size:50px; }
-  .main-nav ul { gap:12px; }
-}
-
-@media (max-width:600px){
-  .hero-title { font-size:36px; }
-  .main-nav ul { display:none; } /* Aquí luego agregamos menú hamburguesa */
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 34px;
+  }
+  .hero-content p {
+    font-size: 16px;
+  }
+  .scroll-container {
+    bottom: 25px;
+  }
 }
