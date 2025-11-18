@@ -53,7 +53,7 @@ body {
   position: relative;
   min-height: 100vh;
   /* CAMBIO AQUI: Ajusta el segundo valor (el porcentaje) para mover el fondo */
-  background: url("imgs/fondo2.jpeg") center 35% / cover no-repeat fixed; 
+  background: url("imgs/fondo.jpg") center 35% / cover no-repeat fixed; 
   /* Puedes probar con 30%, 35%, 40% hasta que encuentres el punto ideal */
   display: flex;
   justify-content: center;
