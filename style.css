@@ -50,14 +50,16 @@ body {
 
 /* -------- HERO -------- */
 .hero {
-  position:relative;
-  min-height:100vh;
-  background:url("imgs/fondo6.png") center / cover no-repeat fixed;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  padding:150px 20px 80px;
+  position: relative;
+  min-height: 100vh;
+  /* CAMBIO AQUI: Ajusta el segundo valor (el porcentaje) para mover el fondo */
+  background: url("imgs/fondo6.png") center 35% / cover no-repeat fixed; 
+  /* Puedes probar con 30%, 35%, 40% hasta que encuentres el punto ideal */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 150px 20px 80px;
 }
 
 
