@@ -70,30 +70,30 @@ const portfolioData = {
   'Branding': [
     {
       mains: [
-        'imgs/Branding/branding_1/poster_teatro.png',
-        'imgs/Branding/branding_2/Equilibra_tu_bienestar.png'
+        'imgs/branding/branding_1/poster_teatro.png',
+        'imgs/branding/branding_2/equilibra_tu_bienestar.png'
       ],
       mockups: [
-        'imgs/Branding/branding_1/Branding 1.1.png',
-        'imgs/Branding/branding_1/Branding 1.3.png',
-        'imgs/Branding/branding_1/Branding 1.4.png',
-        'imgs/Branding/branding_2/Branding 2.1.png',
-        'imgs/Branding/branding_2/Branding 2.4.png',
-        'imgs/Branding/branding_2/Branding 2.3.png',
+        'imgs/branding/branding_1/branding1.1.png',
+        'imgs/branding/branding_1/branding1.3.png',
+        'imgs/branding/branding_1/branding1.4.png',
+        'imgs/branding/branding_2/branding2.1.png',
+        'imgs/branding/branding_2/branding2.4.png',
+        'imgs/branding/branding_2/branding2.3.png',
       ]
     },
     {
       mains: [
-        'imgs/Branding/branding_3/EVENTO AFRO.png',
-        'imgs/Branding/branding_4/Segana Coffee.png'
+        'imgs/branding/branding_3/evento_aforo.png',
+        'imgs/branding/branding_4/segana_coffee.png'
       ],
       mockups: [
-        'imgs/Branding/branding_3/Branding3.2.png',
-        'imgs/Branding/branding_3/Branding3.4.png',
-        'imgs/Branding/branding_3/Branding3.1.png',
-        'imgs/Branding/branding_4/Branding 4.1.png',
-        'imgs/Branding/branding_4/Branding 4.3.png',
-        'imgs/Branding/branding_4/Branding 4.4.png',        
+        'imgs/branding/branding_3/branding3.2.png',
+        'imgs/branding/branding_3/branding3.4.png',
+        'imgs/branding/branding_3/branding3.1.png',
+        'imgs/branding/branding_4/branding4.1.png',
+        'imgs/branding/branding_4/branding4.3.png',
+        'imgs/branding/branding_4/branding4.4.png',        
       ]
     }
   ],
