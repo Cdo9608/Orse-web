@@ -100,66 +100,207 @@ const portfolioData = {
 
 
 
-
-
-
-
-
-  'Afiches': [
+  'Diseño Editorial': [
     {
       mains: [
-        'imgs/Branding/1.0 Póster teatro.png',
-        'imgs/Branding/1.0 Póster teatro.png'
+        'imgs/editorial/editorial_1/editorial_1.png',
+        'imgs/editorial/editorial_2/editorial_2.png'
       ],
       mockups: [
-        'imgs/Branding/3.jpg',
-        'imgs/Branding/1.0 Póster teatro.png',
-        'imgs/Branding/1.0 Póster teatro.png'
+        'imgs/editorial/editorial_1/editorial_1.1.png',
+        'imgs/editorial/editorial_1/editorial_1.2.png',
+        'imgs/editorial/editorial_1/editorial_1.3.png',
+        'imgs/editorial/editorial_2/editorial_2.1.png',
+        'imgs/editorial/editorial_2/editorial_2.2.png',
+        'imgs/editorial/editorial_2/editorial_2.3.png',
+      ]
+    },
+    {
+
+      mains: [
+        'imgs/editorial/editorial_3/editorial_3.png',
+        'imgs/editorial/editorial_4/editorial_4.png'
+      ],
+      mockups: [
+        'imgs/editorial/editorial_3/editorial_3.1.png',
+        'imgs/editorial/editorial_3/editorial_3.2.png',
+        'imgs/editorial/editorial_3/editorial_3.3.png',
+        'imgs/editorial/editorial_4/editorial_4.1.png',
+        'imgs/editorial/editorial_4/editorial_4.2.png',
+        'imgs/editorial/editorial_4/editorial_4.3.png',
+     ]
+    },
+    {
+     mains: [
+        'imgs/editorial/editorial_5/editorial_5.png',
+        'imgs/editorial/editorial_6/editorial_6.png'
+      ],
+      mockups: [
+        'imgs/editorial/editorial_5/editorial_5.1.png',
+        'imgs/editorial/editorial_5/editorial_5.2.png',
+        'imgs/editorial/editorial_5/editorial_5.3.png',
+        'imgs/editorial/editorial_6/editorial_6.1.png',
+        'imgs/editorial/editorial_6/editorial_6.2.png',
+        'imgs/editorial/editorial_6/editorial_6.3.png',
+
+     ]
+    },
+    {
+     mains: [
+        'imgs/editorial/editorial_7/editorial_7.png'
+      ],
+      mockups: [
+        'imgs/editorial/editorial_7/editorial_7.1.png',
+        'imgs/editorial/editorial_7/editorial_7.2.png',
+        'imgs/editorial/editorial_7/editorial_7.3.jpg',
+
       ]
     }
   ],
+
+
+
+
+
+  'Logos': [
+    {
+      // sin imágenes grandes
+      mains: [],
+      // solo cuadritos tipo mockup
+      mockups: [
+        'imgs/logos/logo_1.png',
+        'imgs/logos/logo_2.jpg',
+        'imgs/logos/logo_3.png',
+        'imgs/logos/logo_4.jpg',
+        'imgs/logos/logo_5.jpg',
+        'imgs/logos/logo_6.jpg',
+        'imgs/logos/logo_7.png',
+        'imgs/logos/logo_8.jpg',
+        'imgs/logos/logo_9.png',
+        'imgs/logos/logo_10.png',
+        'imgs/logos/logo_11.png',
+        'imgs/logos/logo_12.jpg',
+        'imgs/logos/logo_13.png',
+        'imgs/logos/logo_14.png',
+        'imgs/logos/logo_15.png',
+
+      ]
+    }
+  ],
+
+
 
   'Social Media': [
     {
-      mains: [
-        'imgs/Branding/1.0 Póster teatro.png',
-        'imgs/Branding/1.0 Póster teatro.png'
-      ],
+      // sin imágenes grandes
+      mains: [],
+      // solo cuadritos tipo mockup
       mockups: [
-        'imgs/Branding/3.jpg',
-        'imgs/Branding/1.0 Póster teatro.png',
-        'imgs/Branding/1.0 Póster teatro.png'
-      ]
+        'imgs/social_media/social_media_1.png',
+        'imgs/social_media/social_media_2.png',
+        'imgs/social_media/social_media_3.png',
+        'imgs/social_media/social_media_4.png',
+        'imgs/social_media/social_media_5.png',
+        'imgs/social_media/social_media_6.png',
+        'imgs/social_media/social_media_7.png',
+        'imgs/social_media/social_media_8.png',
+        'imgs/social_media/social_media_9.png',
+        'imgs/social_media/social_media_10.png',
+        'imgs/social_media/social_media_11.png',
+        'imgs/social_media/social_media_12.png',
+        'imgs/social_media/social_media_13.png',
+        'imgs/social_media/social_media_14.png',
+        'imgs/social_media/social_media_15.png',
+        'imgs/social_media/social_media_16.png',
+        'imgs/social_media/social_media_17.png',
+        'imgs/social_media/social_media_18.png',
+        'imgs/social_media/social_media_19.png',
+        'imgs/social_media/social_media_20.png',
+        'imgs/social_media/social_media_21.jpg',
+        'imgs/social_media/social_media_22.png',
+        'imgs/social_media/social_media_23.png',
+        'imgs/social_media/social_media_24.jpg',
+        'imgs/social_media/social_media_25.png',
+        'imgs/social_media/social_media_26.jpg'
+
+      ] 
     }
   ],
 
-  'Packaging': [
-    {
-      mains: [
-        'imgs/Branding/1.0 Póster teatro.png',
-        'imgs/Branding/1.0 Póster teatro.png'
-      ],
-      mockups: [
-        'imgs/Branding/3.jpg',
-        'imgs/Branding/1.0 Póster teatro.png'
-      ]
-    }
-  ],
 
-  'Editorial': [
-    {
-      mains: [
-        'imgs/Branding/1.0 Póster teatro.png',
-        'imgs/Branding/1.0 Póster teatro.png'
-      ],
-      mockups: [
-        'imgs/Branding/3.jpg',
-        'imgs/Branding/1.0 Póster teatro.png'
-      ]
-    }
-  ],
+
+  
 
   'Ilustración': [
+    {
+      // sin imágenes grandes
+      mains: [],
+      // solo cuadritos tipo mockup
+      mockups: [
+        'imgs/ilustracion/ilustracion_1.png',
+        'imgs/ilustracion/ilustracion_2.png',
+        'imgs/ilustracion/ilustracion_3.png',
+        'imgs/ilustracion/ilustracion_4.png',
+        'imgs/ilustracion/ilustracion_5.png',
+        'imgs/ilustracion/ilustracion_6.png',
+        'imgs/ilustracion/ilustracion_7.png',
+        'imgs/ilustracion/ilustracion_8.png',
+        'imgs/ilustracion/ilustracion_9.png',
+        'imgs/ilustracion/ilustracion_10.png',
+        'imgs/ilustracion/ilustracion_11.png',
+        'imgs/ilustracion/ilustracion_12.png',
+        'imgs/ilustracion/ilustracion_13.png',
+        'imgs/ilustracion/ilustracion_14.png',
+        'imgs/ilustracion/ilustracion_15.png',
+        'imgs/ilustracion/ilustracion_16.png',
+        'imgs/ilustracion/ilustracion_17.png',
+        'imgs/ilustracion/ilustracion_18.png',
+        'imgs/ilustracion/ilustracion_19.png',
+        'imgs/ilustracion/ilustracion_20.png',
+        'imgs/ilustracion/ilustracion_21.png',
+        'imgs/ilustracion/ilustracion_22.png',
+        'imgs/ilustracion/ilustracion_23.png',
+        'imgs/ilustracion/ilustracion_24.png',
+        'imgs/ilustracion/ilustracion_25.png',
+        'imgs/ilustracion/ilustracion_26.png',
+        'imgs/ilustracion/ilustracion_27.png',
+        'imgs/ilustracion/ilustracion_28.png',
+        'imgs/ilustracion/ilustracion_29.png',
+        'imgs/ilustracion/ilustracion_30.png'
+
+
+      ] 
+    }
+  ],
+
+
+  'Diseño Textil': [
+    {
+      mains: [
+        'imgs/Branding/1.0 Póster teatro.png',
+        'imgs/Branding/1.0 Póster teatro.png'
+      ],
+      mockups: [
+        'imgs/Branding/3.jpg',
+        'imgs/Branding/1.0 Póster teatro.png'
+      ]
+    }
+  ],
+
+  'a': [
+    {
+      mains: [
+        'imgs/Branding/1.0 Póster teatro.png',
+        'imgs/Branding/1.0 Póster teatro.png'
+      ],
+      mockups: [
+        'imgs/Branding/3.jpg',
+        'imgs/Branding/1.0 Póster teatro.png'
+      ]
+    }
+  ],
+
+  'd': [
     {
       mains: [
         'imgs/Branding/1.0 Póster teatro.png',
@@ -217,23 +358,41 @@ function renderModalSlide() {
   // Título
   titleEl.textContent = currentCategory;
 
-  // Imágenes principales
-  mainImagesEl.innerHTML = '';
-  slide.mains.forEach(src => {
-    const img = document.createElement('img');
-    img.src = src;
-    img.className = 'pm-main-image';
-    mainImagesEl.appendChild(img);
-  });
+  const pmBody = document.querySelector('.pm-body');
 
-  // Mockups
+  // limpiamos estados anteriores
+  pmBody.classList.remove('pm-grid-only');
+  mainImagesEl.innerHTML = '';
   mockupsEl.innerHTML = '';
-  slide.mockups.forEach(src => {
-    const img = document.createElement('img');
-    img.src = src;
-    img.className = 'pm-mockup';
-    mockupsEl.appendChild(img);
-  });
+
+  // Si hay imágenes principales → layout normal
+  if (slide.mains && slide.mains.length > 0) {
+    slide.mains.forEach(src => {
+      const img = document.createElement('img');
+      img.src = src;
+      img.className = 'pm-main-image';
+      mainImagesEl.appendChild(img);
+    });
+
+    slide.mockups.forEach(src => {
+      const img = document.createElement('img');
+      img.src = src;
+      img.className = 'pm-mockup';
+      mockupsEl.appendChild(img);
+    });
+
+  } else {
+    // === MODO LOGOS: solo mockups, sin imágenes grandes ===
+    pmBody.classList.add('pm-grid-only');
+
+    slide.mockups.forEach(src => {
+      const img = document.createElement('img');
+      img.src = src;
+      img.className = 'pm-mockup';
+      mockupsEl.appendChild(img);
+    });
+  }
+
 
   // Dots
   dotsEl.innerHTML = '';
@@ -266,7 +425,7 @@ function startAutoSlide() {
     if (!slides || !slides.length) return;
     currentSlide = (currentSlide + 1) % slides.length;
     renderModalSlide();
-  }, 10000);   // 10 segundos
+  }, 15000);   // 10 segundos
 }
 
 function stopAutoSlide() {
@@ -286,6 +445,29 @@ function changeCategory(step) {
   renderModalSlide();
   startAutoSlide();
 }
+
+// ==== Flechas del carrusel (abajo, junto a las barritas) ====
+const btnSlidePrev = document.querySelector('.pm-prev-slide');
+const btnSlideNext = document.querySelector('.pm-next-slide');
+
+if (btnSlidePrev && btnSlideNext) {
+  btnSlidePrev.addEventListener('click', () => {
+    const slides = portfolioData[currentCategory];
+    if (!slides || !slides.length) return;
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    renderModalSlide();
+    startAutoSlide();
+  });
+
+  btnSlideNext.addEventListener('click', () => {
+    const slides = portfolioData[currentCategory];
+    if (!slides || !slides.length) return;
+    currentSlide = (currentSlide + 1) % slides.length;
+    renderModalSlide();
+    startAutoSlide();
+  });
+}
+
 
 /* Eventos de los cuadros en PORTAFOLIO */
 document.querySelectorAll('.work-box').forEach(box => {
@@ -360,3 +542,30 @@ function enableImageZoom() {
     }
   });
 }
+
+
+// ==== SCROLL SPY PARA ILUMINAR MENÚ ====
+const sections = document.querySelectorAll("section[id]");
+const navLinks = document.querySelectorAll(".main-nav a");
+
+function activateMenuOnScroll() {
+  let scrollPos = window.scrollY + 150; // margen para activar antes
+
+  sections.forEach(section => {
+    let top = section.offsetTop;
+    let height = section.offsetHeight;
+    let id = section.getAttribute("id");
+
+    if (scrollPos >= top && scrollPos < top + height) {
+      navLinks.forEach(link => link.classList.remove("active"));
+      
+      let activeLink = document.querySelector(`.main-nav a[href="#${id}"]`);
+      if (activeLink) activeLink.classList.add("active");
+    }
+  });
+}
+
+window.addEventListener("scroll", activateMenuOnScroll);
+
+
+
