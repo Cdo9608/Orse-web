@@ -567,5 +567,11 @@ function activateMenuOnScroll() {
 
 window.addEventListener("scroll", activateMenuOnScroll);
 
+const form = document.querySelector(".contact-form");
+const successMsg = document.getElementById("contact-success");
+
+form.addEventListener("submit", () => {
+    successMsg.style.display = "block";
+});
 
 
