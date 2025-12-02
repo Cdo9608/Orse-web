@@ -570,8 +570,16 @@ window.addEventListener("scroll", activateMenuOnScroll);
 const form = document.querySelector(".contact-form");
 const successMsg = document.getElementById("contact-success");
 
-form.addEventListener("submit", () => {
+if (form && successMsg) {
+  form.addEventListener("submit", () => {
     successMsg.style.display = "block";
-});
+
+    // Opcional: ocultarlo después de 4 segundos
+    setTimeout(() => {
+      successMsg.style.display = "none";
+    }, 4000);
+  });
+}
+
 
 
