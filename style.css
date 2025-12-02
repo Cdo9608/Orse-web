@@ -1,3 +1,8 @@
+section {
+    background-color: #000; /* fondo negro REAL */
+}
+
+
 /* ============================= */
 /* RESET */
 /* ============================= */
@@ -11,6 +16,10 @@ body {
   font-family: "Poppins", sans-serif;
   background: #000;
   color: #fff;
+}
+
+section[id] { 
+  scroll-margin-top: 120px;
 }
 
 /* ============================= */
@@ -74,6 +83,13 @@ body.on-hero .site-header {
 
 .main-nav a:hover {
   opacity: 1;
+}
+
+
+
+
+section[id] {
+  scroll-margin-top: 0;   /* o simplemente elimina la regla */
 }
 
 /* ============================= */
@@ -216,7 +232,7 @@ body.on-hero .site-header {
 /* ABOUT */
 /* ============================= */
 .about-section {
-  padding: 250px 0;
+  padding: 180px 0;
   background: #000;
   color: #fff;
 }
@@ -276,9 +292,11 @@ body.on-hero .site-header {
 
 .services-section {
   position: relative;
-  padding: 335px 0;
+  padding: 260px 0 150px;
   background: url("imgs/fondo_pt2.png") center/cover no-repeat;
   overflow: hidden;
+  min-height: 100vh;   /* 🔥 NUEVO: que Servicios siempre llene la pantalla */
+  margin-top: 40px;  /* 🔥 BAJA SOLO EL TÍTULO */
 }
 
 .services-section::before {
@@ -309,10 +327,11 @@ body.on-hero .site-header {
 /* COLUMNA IZQUIERDA (TEXTO) */
 .services-left {
   flex: 0 0 280px;
-  margin-top: 150px;
+  margin-top: 120px;      /* puedes subir/bajar este valor a gusto */
   text-align: left;
-  transform: translateX(-110px);
+  transform: none;        /* 🔥 quitamos el desplazamiento negativo */
 }
+
 
 .services-title {
   font-family: "Montserrat", sans-serif;
@@ -334,16 +353,18 @@ body.on-hero .site-header {
 .services-right {
   flex: 1;
   min-width: 0;
-  margin-left: 260px;
+  margin-left: 0;   /* 🔥 sin empuje lateral */
 }
+
 
 /* GRID DE TARJETAS */
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(400px, 480px));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 35px;
   justify-content: center;
 }
+
 
 /* TARJETAS */
 .service-box {
@@ -427,18 +448,29 @@ body.on-hero .site-header {
 .works-section {
   display: grid;
   background: radial-gradient(circle at center, #111 0%, #000 90%);
-  grid-template-columns: 350px 1fr;
+  grid-template-columns: 260px 1fr;
   gap: 60px;
-  padding: 200px 0;
-  width: 90%;
-  max-width: 1500px;
+  padding: 160px 0;
+  width: min(95%, 1400px);  /* se adapta al ancho de pantalla */
   margin: 0 auto;
 }
 
-.works-left {
-  margin-top: 180px;
-  margin-left: -200px;
+
+@media (max-width: 1600px) {
+  .works-section {
+    grid-template-columns: 300px 1fr;
+  }
 }
+
+@media (max-width: 1400px) {
+  .works-section {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+
+
+
 
 .works-title::after {
   content: "";
@@ -454,7 +486,7 @@ body.on-hero .site-header {
 
 .works-title {
   font-family: "Montserrat", sans-serif;
-  font-size: 52px;
+  font-size: 35px;
   font-weight: 900;
   margin-bottom: 20px;
 }
@@ -471,7 +503,7 @@ body.on-hero .site-header {
 /* GRID DE CUADROS */
 .works-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(350px, 1fr));
+  grid-template-columns: repeat(3, minmax(260px, 1fr));
   gap: 30px;
 }
 
@@ -540,15 +572,29 @@ body.on-hero .site-header {
     text-align: center;
   }
 
-  .works-left {
-    margin-top: 0;
-    margin-left: 0;
-  }
+.works-left {
+  margin-top: 200px;  /* puedes ajustar este valor a tu gusto */
+  margin-left: 0;
+}
+
 
   .works-grid {
     grid-template-columns: repeat(2,1fr);
   }
 }
+
+.works-left {
+  margin-top: 80px; /* igual que ACERCA DE */
+}
+
+.works-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;   /* centra verticalmente */
+  height: 100%;
+}
+
+
 
 @media (max-width: 768px) {
   .works-grid {
@@ -556,7 +602,7 @@ body.on-hero .site-header {
   }
 
   .works-title {
-    font-size: 40px;
+    font-size: 35px;
   }
 }
 
@@ -876,4 +922,221 @@ body.on-hero .site-header {
   font-weight: 700;
   text-shadow: 0 0 8px rgba(255,255,255,0.7);
   transition: 0.3s ease;
+}
+
+
+
+@media (max-width: 1700px) {
+  .works-section {
+    grid-template-columns: 300px 1fr;
+  }
+}
+
+@media (max-width: 1500px) {
+  .works-section {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .works-left {
+    margin: 40px auto;
+  }
+}
+
+
+
+/* =======================================
+   CONTACTO
+======================================= */
+
+.contact-section {
+  padding: 120px 80px 60px;  /* antes algo como 140px 80px 120px */
+  background: #050505;
+}
+
+/* Cabecera con CONTACTO grande y texto encima */
+.contact-header {
+  position: relative;
+  text-align: center;
+  margin-bottom: 48px;   /* antes 80px */
+}
+
+.contact-title-ghost {
+  font-size: 90px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #ffffff;
+  opacity: 0.05;           /* efecto “fantasma” */
+  margin: 0;
+}
+
+.contact-title-sub {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  font-size: 18px;
+  font-weight: 600;
+  color: #f5f5f5;
+}
+
+/* Layout dos columnas */
+.contact-body {
+  display: flex;
+  gap: 80px;
+  align-items: flex-start;
+}
+
+/* IZQUIERDA */
+.contact-left {
+  flex: 1.1;
+  max-width: 560px;
+  padding-left: 40px;   /* 👉 nuevo: empuja el formulario hacia la derecha */
+  margin-top: 80px;   /* Ajusta el número a lo que necesites */
+}
+
+.contact-intro h3 {
+  font-size: 30px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.contact-intro p {
+  font-size: 14px;
+  line-height: 1.7;
+  max-width: 420px;
+  color: #d0d0d0;
+}
+
+/* Formulario */
+.contact-form {
+  margin-top: 40px;
+}
+
+.contact-row {
+  display: flex;
+  gap: 32px;
+}
+
+.contact-field {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 24px;
+}
+
+.contact-field label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #bbbbbb;
+}
+
+.contact-field input,
+.contact-field textarea {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #333;
+  padding: 8px 0;
+  font-size: 14px;
+  color: #f5f5f5;
+  outline: none;
+}
+
+.contact-field input:focus,
+.contact-field textarea:focus {
+  border-bottom-color: #ff8b2b;
+}
+
+.btn-contact {
+  margin-top: 10px;
+  padding: 10px 32px;
+  border: none;
+  background: #ff4b3a;
+  color: #fff;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.btn-contact:hover {
+  background: #ff6d5d;
+  transform: translateY(-1px);
+}
+
+/* DERECHA: foto real, sin marco */
+.contact-right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;   /* nos aseguramos que se pegue arriba */
+}
+
+.contact-photo {
+  max-width: 520px;
+  width: 100%;
+  max-height: 65vh;          /* 👉 la foto nunca pasa del 65% de la altura de la ventana */
+  border-radius: 14px;
+  object-fit: cover;
+  display: block;
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+  .contact-body {
+    flex-direction: column;
+  }
+
+  .contact-right {
+    justify-content: flex-start;
+  }
+
+  .contact-photo {
+    max-width: 100%;
+    margin-top: 40px;
+  }
+
+  .contact-title-ghost {
+    font-size: 60px;
+  }
+}
+
+@media (max-width: 600px) {
+  .contact-section {
+    padding: 120px 24px 80px;
+  }
+
+  .contact-row {
+    flex-direction: column;
+    gap: 0;
+  }
+
+.contact-title-ghost {
+  font-size: 70px;          /* antes 90px */
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #ffffff;
+  opacity: 0.04;
+  margin: 0;
+}
+
+
+  .contact-title-sub {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;   /* un poco menos separado */
+  font-size: 14px;          /* más pequeño */
+  font-weight: 600;
+  color: #f5f5f5;
+}
+
 }
