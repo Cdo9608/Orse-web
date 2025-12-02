@@ -567,19 +567,28 @@ function activateMenuOnScroll() {
 
 window.addEventListener("scroll", activateMenuOnScroll);
 
-const form = document.querySelector(".contact-form");
-const successMsg = document.getElementById("contact-success");
 
-if (form && successMsg) {
-  form.addEventListener("submit", () => {
+
+document.addEventListener("DOMContentLoaded", function () {
+  
+  const form = document.querySelector(".contact-form");
+  const successMsg = document.getElementById("contact-success");
+
+  if (!form || !successMsg) {
+    console.log("Formulario o mensaje no encontrado");
+    return;
+  }
+
+  form.addEventListener("submit", function () {
     successMsg.style.display = "block";
 
-    // Opcional: ocultarlo después de 4 segundos
     setTimeout(() => {
       successMsg.style.display = "none";
     }, 4000);
   });
-}
+
+});
+
 
 
 
