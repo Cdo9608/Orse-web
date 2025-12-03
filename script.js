@@ -277,41 +277,17 @@ const portfolioData = {
   'Diseño Textil': [
     {
       mains: [
-        'imgs/Branding/1.0 Póster teatro.png',
-        'imgs/Branding/1.0 Póster teatro.png'
+        'imgs/branding/1.0 Póster teatro.png',
+        'imgs/branding/1.0 Póster teatro.png'
       ],
       mockups: [
-        'imgs/Branding/3.jpg',
-        'imgs/Branding/1.0 Póster teatro.png'
+        'imgs/branding/3.jpg',
+        'imgs/branding/1.0 Póster teatro.png'
       ]
     }
   ],
 
-  'a': [
-    {
-      mains: [
-        'imgs/Branding/1.0 Póster teatro.png',
-        'imgs/Branding/1.0 Póster teatro.png'
-      ],
-      mockups: [
-        'imgs/Branding/3.jpg',
-        'imgs/Branding/1.0 Póster teatro.png'
-      ]
-    }
-  ],
 
-  'd': [
-    {
-      mains: [
-        'imgs/Branding/1.0 Póster teatro.png',
-        'imgs/Branding/1.0 Póster teatro.png'
-      ],
-      mockups: [
-        'imgs/Branding/1.0 Póster teatro.png',
-        'imgs/Branding/1.0 Póster teatro.png'
-      ]
-    }
-  ]
 };
 
 const portfolioCategories = Object.keys(portfolioData);
