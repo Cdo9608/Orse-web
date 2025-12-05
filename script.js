@@ -274,19 +274,38 @@ const portfolioData = {
   ],
 
 
+
   'Diseño Textil': [
     {
-      mains: [
-        'imgs/branding/1.0 Póster teatro.png',
-        'imgs/branding/1.0 Póster teatro.png'
-      ],
+      // sin imágenes grandes
+      mains: [],
+      // solo cuadritos tipo mockup
       mockups: [
-        'imgs/branding/3.jpg',
-        'imgs/branding/1.0 Póster teatro.png'
-      ]
+        'imgs/textil/textil1.1.png',
+        'imgs/textil/textil2.1.png',
+        'imgs/textil/textil3.1.png',
+        'imgs/textil/textil4.1.png',
+        'imgs/textil/textil5.1.png',
+        'imgs/textil/textil6.1.png',
+        'imgs/textil/textil8.1.png',
+        'imgs/textil/textil9.1.png',
+        'imgs/textil/textil11.1.png',
+
+        'imgs/textil/textil1.png',
+        'imgs/textil/textil2.png',
+        'imgs/textil/textil3.png',
+        'imgs/textil/textil4.png',
+        'imgs/textil/textil5.png',
+        'imgs/textil/textil6.png',
+        'imgs/textil/textil8.png',
+        'imgs/textil/textil9.png',
+        'imgs/textil/textil10.png',
+        'imgs/textil/textil11.png',
+        'imgs/textil/textil12.png'
+
+      ] 
     }
   ],
-
 
 };
 
