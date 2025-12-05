@@ -276,71 +276,88 @@
 </div>
 
 
+    <!-- CONTACTO-->
 
-<section id="contact" class="contact-section">
-  <!-- CABECERA CONTACTO -->
-  <div class="contact-header">
-    <h2 class="contact-title-ghost">CONTACTO</h2>
-    <span class="contact-title-sub">PONERSE EN CONTACTO</span>
-  </div>
+    <section id="contact" class="contact-section">
+  <div class="contact-container">
+    <!-- CABECERA CONTACTO -->
+    <div class="contact-header">
+      <h2 class="contact-title-ghost">CONTACTO</h2>
+      <span class="contact-title-sub">PONERSE EN CONTACTO</span>
+    </div>
 
-  <!-- CONTENIDO CONTACTO -->
-  <div class="contact-body">
-    <!-- COLUMNA IZQUIERDA: TEXTO + FORM -->
-    <div class="contact-left">
-      <div class="contact-intro">
-        <h3>NO SEAS TÍMIDO</h3>
-        <p>
-          No dudes en ponerte en contacto conmigo. Siempre estoy abierta a discutir
-          nuevos proyectos, ideas creativas u oportunidades para ser parte de tus visiones.
-        </p>
+    <!-- CONTENIDO CONTACTO -->
+    <div class="contact-body">
+      <!-- COLUMNA IZQUIERDA: TEXTO + FORM -->
+      <div class="contact-left">
+        <div class="contact-intro">
+          <h3>NO SEAS TÍMIDO</h3>
+          <p>
+            No dudes en ponerte en contacto conmigo. Siempre estoy abierta a discutir
+            nuevos proyectos, ideas creativas u oportunidades para ser parte de tus visiones.
+          </p>
+        </div>
+
+        <form 
+          action="https://formsubmit.co/orseatelier@gmail.com"
+          method="POST"
+          class="contact-form"
+        >
+          <div class="contact-row">
+            <div class="contact-field">
+              <label for="name">NAME</label>
+              <input type="text" id="name" name="name" placeholder="Tu nombre" required>
+            </div>
+
+            <div class="contact-field">
+              <label for="email">EMAIL</label>
+              <input type="email" id="email" name="email" placeholder="tucorreo@email.com" required>
+            </div>
+          </div>
+
+          <div class="contact-field">
+            <label for="message">MESSAGE</label>
+            <textarea id="message" name="message" rows="4" placeholder="Escribe tu mensaje aquí" required></textarea>
+          </div>
+
+          <!-- Configuración FormSubmit -->
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_subject" value="Nuevo mensaje desde tu portafolio">
+          <input type="hidden" name="_next" value="https://cdo9608.github.io/Orse-web/#contact">
+
+          <button type="submit" class="btn-contact">
+            SEND MESSAGE
+          </button>
+
+          <p id="contact-success" class="success-msg" style="display:none;">
+            ¡Tu mensaje ha sido enviado con éxito!
+          </p>  
+        </form>
       </div>
 
-<form 
-  action="https://formsubmit.co/orseatelier@gmail.com"
-  method="POST"
-  class="contact-form"
->
-  <div class="contact-row">
-    <div class="contact-field">
-      <label for="name">Name</label>
-      <input type="text" id="name" name="name" placeholder="Tu nombre" required>
-    </div>
-
-    <div class="contact-field">
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" placeholder="tucorreo@email.com" required>
-    </div>
-  </div>
-
-  <div class="contact-field">
-    <label for="message">Message</label>
-    <textarea id="message" name="message" rows="4" placeholder="Escribe tu mensaje aquí" required></textarea>
-  </div>
-
-  <!-- Configuración FormSubmit -->
-  <input type="hidden" name="_captcha" value="false">
-  <input type="hidden" name="_subject" value="Nuevo mensaje desde tu portafolio">
-  <input type="hidden" name="_next" value="https://cdo9608.github.io/Orse-web/#contact">
-
-  <button type="submit" class="btn-contact">
-  SEND MESSAGE
-  </button>
-
-  <p id="contact-success" class="success-msg" style="display:none;">
-  ¡Tu mensaje ha sido enviado con éxito!
-  </p>  
-</form>
-
-    </div>
-
-    <!-- COLUMNA DERECHA: FOTO REAL -->
-    <div class="contact-right">
-      <img
-        src="imgs/contacto.jpeg"
-        alt="Mercedes Ortiz trabajando en su estudio"
-        class="contact-photo"
-      />
+      <!-- COLUMNA DERECHA: SLIDER DE FOTOS -->
+      <div class="contact-right">
+        <div class="contact-photo-slider">
+          <img
+            src="imgs/contacto.png"
+            alt="Mercedes Ortiz trabajando en su estudio"
+            class="contact-photo active"
+            data-slide="0"
+          />
+          <img
+            src="imgs/contacto1.png"
+            alt="Mercedes Ortiz - Vista 2"
+            class="contact-photo"
+            data-slide="1"
+          />
+          
+          <!-- Controles del slider (círculos) -->
+          <div class="slider-controls">
+            <span class="slider-dot active" data-slide="0"></span>
+            <span class="slider-dot" data-slide="1"></span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>

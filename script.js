@@ -544,16 +544,76 @@ function activateMenuOnScroll() {
 window.addEventListener("scroll", activateMenuOnScroll);
 
 
+// =======================================
+// SLIDER DE FOTOS EN CONTACTO
+// =======================================
 
 document.addEventListener("DOMContentLoaded", function () {
-  
+  const slides = document.querySelectorAll(".contact-photo");
+  const dots = document.querySelectorAll(".slider-dot");
+  let currentSlide = 0;
+  let sliderInterval;
+
+  // Función para cambiar de slide
+  function goToSlide(index) {
+    // Remover clase active de todos
+    slides.forEach(slide => slide.classList.remove("active"));
+    dots.forEach(dot => dot.classList.remove("active"));
+
+    // Agregar clase active al slide actual
+    slides[index].classList.add("active");
+    dots[index].classList.add("active");
+
+    currentSlide = index;
+  }
+
+  // Función para ir al siguiente slide
+  function nextSlide() {
+    let next = (currentSlide + 1) % slides.length;
+    goToSlide(next);
+  }
+
+  // Auto-slide cada 5 segundos
+  function startAutoSlide() {
+    sliderInterval = setInterval(nextSlide, 5000);
+  }
+
+  // Detener auto-slide
+  function stopAutoSlide() {
+    clearInterval(sliderInterval);
+  }
+
+  // Click en los dots
+  dots.forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+      stopAutoSlide();
+      goToSlide(index);
+      startAutoSlide(); // Reiniciar el auto-slide
+    });
+  });
+
+  // Iniciar el slider automático
+  startAutoSlide();
+
+  // Pausar cuando el usuario no está viendo la página
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+      stopAutoSlide();
+    } else {
+      startAutoSlide();
+    }
+  });
+});
+
+// =======================================
+// MANEJO DEL FORMULARIO DE CONTACTO
+// =======================================
+
+document.addEventListener("DOMContentLoaded", function () {
   const form = document.querySelector(".contact-form");
   const successMsg = document.getElementById("contact-success");
 
-  if (!form || !successMsg) {
-    console.log("Formulario o mensaje no encontrado");
-    return;
-  }
+  if (!form || !successMsg) return;
 
   form.addEventListener("submit", function () {
     successMsg.style.display = "block";
@@ -562,9 +622,6 @@ document.addEventListener("DOMContentLoaded", function () {
       successMsg.style.display = "none";
     }, 4000);
   });
-
 });
-
-
 
 
