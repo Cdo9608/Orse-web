@@ -644,3 +644,95 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+
+
+
+// =======================================
+// PROTECCIÓN DE IMÁGENES
+// =======================================
+// =======================================
+// PROTECCIÓN DE IMÁGENES
+// =======================================
+
+document.addEventListener('DOMContentLoaded', function() {
+  
+  // Función para proteger imágenes
+  function protegerImagenes(imagenes) {
+    imagenes.forEach(img => {
+      if (img) {
+        // Bloquear clic derecho
+        img.addEventListener('contextmenu', function(e) {
+          e.preventDefault();
+          return false;
+        });
+        
+        // Bloquear arrastrar
+        img.addEventListener('dragstart', function(e) {
+          e.preventDefault();
+          return false;
+        });
+        
+        // Bloquear selección
+        img.addEventListener('mousedown', function(e) {
+          if (e.button === 2) { // Botón derecho
+            e.preventDefault();
+            return false;
+          }
+        });
+      }
+    });
+  }
+
+  // 1️⃣ Proteger imágenes del slider de contacto
+  const contactPhotos = document.querySelectorAll('.contact-photo');
+  protegerImagenes(contactPhotos);
+
+  // 2️⃣ Proteger imagen de "Acerca de"
+  const aboutImage = document.querySelector('.about-image img');
+  if (aboutImage) {
+    protegerImagenes([aboutImage]);
+  }
+
+  // 3️⃣ Proteger imágenes del modal de portafolio
+  const portfolioMainImages = document.querySelectorAll('.pm-main-image');
+  const portfolioMockups = document.querySelectorAll('.pm-mockup');
+  
+  protegerImagenes(portfolioMainImages);
+  protegerImagenes(portfolioMockups);
+
+  // 3️⃣ Observador para proteger imágenes que se cargan dinámicamente
+  const observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+      if (mutation.addedNodes.length) {
+        // Proteger nuevas imágenes del modal cuando se abra
+        const newMainImages = document.querySelectorAll('.pm-main-image');
+        const newMockups = document.querySelectorAll('.pm-mockup');
+        
+        protegerImagenes(newMainImages);
+        protegerImagenes(newMockups);
+      }
+    });
+  });
+
+  // Observar cambios en el modal
+  const modalBody = document.querySelector('.pm-body');
+  if (modalBody) {
+    observer.observe(modalBody, {
+      childList: true,
+      subtree: true
+    });
+  }
+
+  // 4️⃣ También proteger cuando se cambia de slide en el modal
+  const modalEl = document.getElementById('portfolio-modal');
+  if (modalEl) {
+    modalEl.addEventListener('click', function() {
+      setTimeout(() => {
+        const allImages = document.querySelectorAll('.pm-main-image, .pm-mockup');
+        protegerImagenes(allImages);
+      }, 100);
+    });
+  }
+
+});
+

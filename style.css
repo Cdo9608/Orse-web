@@ -1252,7 +1252,7 @@ section[id] {
   }
 
   .contact-header {
-    margin-bottom: 50px;
+    margin-bottom: 20px;
   }
 
   .contact-row {
@@ -1284,7 +1284,7 @@ section[id] {
   }
 
   .contact-photo-slider {
-    height: 500px;
+    height: 820px;
   }
 
   .slider-controls {
@@ -1296,3 +1296,73 @@ section[id] {
     height: 9px;
   }
 }
+
+
+/* =======================================
+   PROTECCIÓN DE IMÁGENES
+======================================= */
+
+/* Proteger imágenes del slider de contacto */
+.contact-photo {
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+}
+
+/* Proteger imagen de "Acerca de" */
+.about-image img {
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+}
+
+/* Proteger imágenes del modal de portafolio */
+.pm-main-image,
+.pm-mockup {
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+}
+
+/* Mantener los controles del slider funcionando */
+.slider-controls {
+  pointer-events: auto;
+}
+
+/* Mantener los botones del modal funcionando */
+.pm-close,
+.pm-arrow,
+.pm-dot,
+.pm-dots-arrow {
+  pointer-events: auto;
+}
+
+/* Evitar selección de texto sobre las imágenes */
+.pm-body,
+.contact-photo-slider {
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
