@@ -736,3 +736,330 @@ document.addEventListener('DOMContentLoaded', function() {
 
 });
 
+
+
+
+
+// =======================================
+// CARRUSEL ESTUDIO EXPERIMENTAL CON VIDEO
+// =======================================
+
+document.addEventListener('DOMContentLoaded', function() {
+  
+  const carouselItems = document.querySelectorAll('.carousel-track img, .carousel-track video');
+  const progressBar = document.querySelector('.carousel-progress-bar');
+  const currentCounter = document.querySelector('.carousel-counter .current');
+  const totalCounter = document.querySelector('.carousel-counter .total');
+  
+  if (!carouselItems.length) return;
+  
+  let currentIndex = 0;
+  const totalItems = carouselItems.length;
+  const imageDuration = 2000; // 4 segundos para imágenes
+  let progressInterval;
+  let slideTimeout;
+  let isVideoPlaying = false;
+  
+  // Actualizar contador total
+  if (totalCounter) {
+    totalCounter.textContent = totalItems;
+  }
+  
+  function updateCarousel() {
+    // Remover active de todos
+    carouselItems.forEach(item => {
+      item.classList.remove('active');
+      if (item.tagName === 'VIDEO') {
+        item.pause();
+        item.currentTime = 0;
+      }
+    });
+    
+    // Activar el actual
+    const currentItem = carouselItems[currentIndex];
+    currentItem.classList.add('active');
+    
+    // Actualizar contador
+    if (currentCounter) {
+      currentCounter.textContent = currentIndex + 1;
+    }
+    
+    // Determinar duración
+    let duration = imageDuration;
+    
+    if (currentItem.tagName === 'VIDEO') {
+      isVideoPlaying = true;
+      currentItem.play();
+      
+      // Esperar a que el video cargue su duración
+      if (currentItem.duration && !isNaN(currentItem.duration)) {
+        duration = currentItem.duration * 1000;
+      } else {
+        currentItem.addEventListener('loadedmetadata', function() {
+          duration = this.duration * 1000;
+          startSlideTimer(duration);
+        }, { once: true });
+        return; // Salir y esperar a que cargue
+      }
+    } else {
+      isVideoPlaying = false;
+    }
+    
+    startSlideTimer(duration);
+    startProgress(duration);
+  }
+  
+  function startProgress(duration) {
+    let progress = 0;
+    const increment = 100 / (duration / 100);
+    
+    clearInterval(progressInterval);
+    
+    if (progressBar) {
+      progressBar.style.width = '0%';
+    }
+    
+    progressInterval = setInterval(() => {
+      progress += increment;
+      if (progressBar) {
+        progressBar.style.width = Math.min(progress, 100) + '%';
+      }
+      if (progress >= 100) {
+        clearInterval(progressInterval);
+      }
+    }, 100);
+  }
+  
+  function startSlideTimer(duration) {
+    clearTimeout(slideTimeout);
+    
+    slideTimeout = setTimeout(() => {
+      nextSlide();
+    }, duration);
+  }
+  
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % totalItems;
+    updateCarousel();
+  }
+  
+  function stopCarousel() {
+    clearTimeout(slideTimeout);
+    clearInterval(progressInterval);
+    
+    // Pausar video si está activo
+    const currentItem = carouselItems[currentIndex];
+    if (currentItem && currentItem.tagName === 'VIDEO') {
+      currentItem.pause();
+    }
+  }
+  
+  function resumeCarousel() {
+    const currentItem = carouselItems[currentIndex];
+    
+    if (currentItem.tagName === 'VIDEO') {
+      currentItem.play();
+      const remainingTime = (currentItem.duration - currentItem.currentTime) * 1000;
+      startSlideTimer(remainingTime);
+      startProgress(remainingTime);
+    } else {
+      startSlideTimer(imageDuration);
+      startProgress(imageDuration);
+    }
+  }
+  
+  // Iniciar carrusel
+  updateCarousel();
+  
+  // Pausar/reanudar al hacer hover
+  const carousel = document.querySelector('.blog-about-carousel');
+  if (carousel) {
+    carousel.addEventListener('mouseenter', stopCarousel);
+    carousel.addEventListener('mouseleave', resumeCarousel);
+  }
+  
+  // Manejar cuando el video termina
+  carouselItems.forEach(item => {
+    if (item.tagName === 'VIDEO') {
+      item.addEventListener('ended', () => {
+        if (item.classList.contains('active')) {
+          nextSlide();
+        }
+      });
+    }
+  });
+  
+  // Pausar cuando no está visible
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      stopCarousel();
+    } else {
+      resumeCarousel();
+    }
+  });
+  
+});
+
+
+
+
+
+// =======================================
+// MODAL "VER TODO" ESTUDIO EXPERIMENTAL
+// =======================================
+
+document.addEventListener('DOMContentLoaded', function () {
+  const btnVerTodo   = document.querySelector('.blog-about-btn');
+  const expModal     = document.getElementById('exp-modal');
+  const expClose     = document.querySelector('.exp-modal-close');
+  const expBackdrop  = document.querySelector('.exp-modal-backdrop');
+  const expGallery   = document.getElementById('exp-gallery');
+
+  // todos los elementos (imágenes y video) del carrusel de la izquierda
+  const carouselItems = document.querySelectorAll(
+    '.blog-about-carousel .carousel-track img, .blog-about-carousel .carousel-track video'
+  );
+
+  if (!btnVerTodo || !expModal || !expGallery || !carouselItems.length) return;
+
+  function openExpModal() {
+    // limpiar galería
+    expGallery.innerHTML = '';
+
+    carouselItems.forEach(item => {
+      if (item.tagName === 'IMG') {
+        // duplicar imagen
+        const img = document.createElement('img');
+        img.src = item.src;
+        img.alt = item.alt || '';
+        expGallery.appendChild(img);
+      } else if (item.tagName === 'VIDEO') {
+        // opcional: incluir también el video del final
+        const video = document.createElement('video');
+        video.controls = true;
+        video.muted = false;
+
+        const source = item.querySelector('source');
+        if (source) {
+          const s = document.createElement('source');
+          s.src = source.src;
+          s.type = source.type;
+          video.appendChild(s);
+        } else if (item.src) {
+          video.src = item.src;
+        }
+
+        expGallery.appendChild(video);
+      }
+    });
+
+    expModal.style.display = 'flex';
+    document.body.style.overflow = 'hidden'; // bloquear scroll de fondo
+  }
+
+  function closeExpModal() {
+    expModal.style.display = 'none';
+    document.body.style.overflow = '';
+  }
+
+  btnVerTodo.addEventListener('click', openExpModal);
+  expClose.addEventListener('click', closeExpModal);
+  expBackdrop.addEventListener('click', closeExpModal);
+
+  // Cerrar con ESC
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && expModal.style.display === 'flex') {
+      closeExpModal();
+    }
+  });
+});
+
+
+
+
+// =======================================
+// CARRUSEL DE VIDEOS CON AUTOPLAY
+// =======================================
+
+document.addEventListener('DOMContentLoaded', function() {
+  
+  const track = document.querySelector('.video-carousel-track');
+  const prevBtn = document.querySelector('.video-prev');
+  const nextBtn = document.querySelector('.video-next');
+  const dots = document.querySelectorAll('.video-dot');
+  const items = document.querySelectorAll('.video-item');
+  const videos = document.querySelectorAll('.video-item video');
+  
+  if (!track || !items.length) return;
+  
+  let currentIndex = 0;
+  
+  function updateCarousel() {
+    const itemWidth = items[0].offsetWidth;
+    const offset = currentIndex * itemWidth;
+    track.style.transform = `translateX(-${offset}px)`;
+    
+    // Actualizar dots
+    dots.forEach((dot, index) => {
+      dot.classList.toggle('active', index === currentIndex);
+    });
+    
+    // Pausar todos los videos
+    videos.forEach(video => {
+      video.pause();
+      video.currentTime = 0;
+    });
+    
+    // Reproducir el video actual (opcional, el usuario puede dar play)
+    const currentVideo = videos[currentIndex];
+    if (currentVideo) {
+  // No auto-play, usuario controla con los controles del video
+      
+      // Cuando termine el video, pasar al siguiente
+      currentVideo.onended = () => {
+        nextSlide();
+      };
+    }
+  }
+  
+  function goToSlide(index) {
+    currentIndex = Math.max(0, Math.min(index, items.length - 1));
+    updateCarousel();
+  }
+  
+  function nextSlide() {
+    if (currentIndex >= items.length - 1) {
+      goToSlide(0);
+    } else {
+      goToSlide(currentIndex + 1);
+    }
+  }
+  
+  function prevSlide() {
+    if (currentIndex <= 0) {
+      goToSlide(items.length - 1);
+    } else {
+      goToSlide(currentIndex - 1);
+    }
+  }
+  
+  // Botones de navegación
+  if (prevBtn) {
+    prevBtn.addEventListener('click', prevSlide);
+  }
+  
+  if (nextBtn) {
+    nextBtn.addEventListener('click', nextSlide);
+  }
+  
+  // Dots
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      goToSlide(index);
+    });
+  });
+  
+  // Iniciar el primer video
+  updateCarousel();
+  
+});

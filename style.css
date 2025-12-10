@@ -1366,3 +1366,703 @@ section[id] {
   -webkit-touch-callout: none;
 }
 
+
+
+
+/* =======================================
+   SECCIÓN BLOG
+======================================= */
+
+.blog-section {
+  background: #000;
+  width: 100%;
+}
+
+/* HERO BLOG */
+.blog-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: url('imgs/blog1.png') center/contain no-repeat;
+  background-color: #000; /* Fondo negro para los espacios */
+  padding: 150px 20px 100px;
+}
+
+.blog-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(2px);
+}
+
+.blog-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.blog-badge {
+  display: inline-block;
+  padding: 8px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 30px;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+  color: #fff;
+}
+
+.blog-hero-title {
+  font-family: "Montserrat", sans-serif;
+  font-size: 60px;
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 30px;
+  color: #fff;
+}
+
+.blog-hero-subtitle {
+  font-size: 16px;
+  line-height: 1.8;
+  max-width: 750px;
+  margin: 0 auto;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* CONTENIDO PRINCIPAL */
+.blog-main-content {
+  background: #f5f5f0;
+  padding: 0;
+}
+
+.blog-card {
+  max-width: 1200px;
+  margin: -80px auto 0;
+  background: #fff;
+  border-radius: 20px;
+  padding: 60px 50px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 10;
+}
+
+
+/* VIDEO DENTRO DEL CUADRO BLANCO */
+.blog-video-inner {
+  margin-top: 50px;
+  width: 80%;  /* 🔥 REDUCE EL ANCHO (era 100%) */
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.blog-video-inner video {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-height: 400px;  /* 🔥 REDUCE LA ALTURA (era 600px) */
+  object-fit: contain;  /* 🔥 CAMBIADO de 'cover' a 'contain' */
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .blog-video-inner {
+    width: 90%;
+    margin-top: 30px;
+  }
+  
+  .blog-video-inner video {
+    max-height: 250px;
+  }
+}
+
+.blog-card-title {
+  font-family: "Montserrat", serif;
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 50px;
+  letter-spacing: 1px;
+  color: #1a1a1a;
+}
+
+.blog-services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.blog-service-item {
+  text-align: left;
+}
+
+.blog-service-content p {
+  font-size: 14px;
+  line-height: 1.9;
+  color: #444;
+  margin-bottom: 16px;
+}
+
+.blog-service-content strong {
+  color: #1a1a1a;
+  font-weight: 600;
+}
+
+/* SECCIÓN ESTUDIO EXPERIMENTAL */
+.blog-about-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  background: #f5f5f0;
+  padding: 120px 0;
+  align-items: center;
+}
+
+.blog-about-content {
+  padding: 60px 80px 60px 120px;
+}
+
+.blog-about-label {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #888;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.blog-about-title {
+  font-family: "Montserrat", serif;
+  font-size: 42px;
+  line-height: 1.2;
+  margin-bottom: 30px;
+  color: #1a1a1a;
+}
+
+.blog-about-text {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+.blog-about-btn {
+  margin-top: 20px;
+  padding: 14px 32px;
+  background: #1a1a1a;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.blog-about-btn:hover {
+  background: #333;
+  transform: translateY(-2px);
+}
+
+/* CARRUSEL DE ESTUDIOS EXPERIMENTALES */
+.blog-about-carousel {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  border-radius: 0 0 0 200px;
+  overflow: hidden;
+  background: #1a1a1a;
+}
+
+.carousel-track {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.carousel-track img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.carousel-track img.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+/* Barra de progreso */
+.carousel-progress {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.carousel-progress-bar {
+  height: 100%;
+  background: #fff;
+  width: 0%;
+  transition: width 0.1s linear;
+}
+
+/* Contador */
+.carousel-counter {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  z-index: 10;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1200px) {
+  .blog-about-carousel {
+    height: 500px;
+    border-radius: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .blog-about-carousel {
+    height: 400px;
+  }
+  
+  .carousel-counter {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+}
+
+
+
+
+/* RESPONSIVE */
+@media (max-width: 1200px) {
+  .blog-services-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .blog-about-section {
+    grid-template-columns: 1fr;
+  }
+
+  .blog-about-content {
+    padding: 60px 40px;
+  }
+
+  .blog-about-image {
+    height: 500px;
+    border-radius: 0;
+  }
+
+  .gallery-item {
+    min-width: calc(50% - 10px);
+  }
+}
+
+@media (max-width: 768px) {
+  .blog-hero-title {
+    font-size: 40px;
+  }
+
+  .blog-card {
+    margin: -60px 20px 0;
+    padding: 40px 30px;
+  }
+
+  .blog-about-title {
+    font-size: 32px;
+  }
+
+  .gallery-item {
+    min-width: 100%;
+  }
+
+  .gallery-arrow {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+}
+
+
+/* Video en el carrusel */
+.carousel-track video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.carousel-track video.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+
+
+.blur-text {
+  position: relative;
+}
+
+.blur-text::before {
+  content: "ORSE ATELIER";
+  position: absolute;
+  left: 0;
+  top: 0;
+  filter: blur(4px); /* Ajusta el nivel de difuminado */
+  color: inherit;
+  opacity: 0.6; /* Para que se vea suave */
+  z-index: -1;
+}
+
+
+/* ============================= */
+/* MODAL "VER TODO" EXPERIMENTAL */
+/* ============================= */
+
+.exp-modal {
+  position: fixed;
+  inset: 0;
+  display: none;               /* se muestra con JS */
+  align-items: center;
+  justify-content: center;
+  z-index: 20000;
+  font-family: "Poppins", sans-serif;
+}
+
+.exp-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  backdrop-filter: blur(4px);
+}
+
+.exp-modal-dialog {
+  position: relative;
+  z-index: 1;
+  width: 92%;
+  max-width: 1200px;
+  max-height: 90vh;
+  background: #0f1014;
+  border-radius: 20px;
+  padding: 30px 30px 24px;
+  overflow-y: auto;
+  box-shadow: 0 0 30px rgba(0,0,0,0.6);
+}
+
+.exp-modal-title {
+  font-family: "Montserrat", sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #fff;
+}
+
+.exp-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: #22272d;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: .2s ease;
+}
+
+.exp-modal-close:hover {
+  background: #3a424a;
+}
+
+/* GRID de miniaturas dentro del modal */
+.exp-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.exp-gallery img,
+.exp-gallery video {
+  width: 100%;
+  max-height: 260px;    /* tamaño cómodo */
+  border-radius: 12px;
+  background: #000;
+  object-fit: contain;  /* 🔥 NO recorta las imágenes */
+  display: block;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .exp-modal-dialog {
+    padding: 24px 16px 18px;
+  }
+
+  .exp-modal-title {
+    font-size: 18px;
+  }
+
+  .exp-gallery {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+
+
+
+/* =======================================
+   CARRUSEL DE VIDEOS FINAL
+======================================= */
+
+.video-carousel-section {
+  background: #f5f5f0;
+  padding: 100px 0 120px;
+}
+
+.video-carousel-container {
+  position: relative;
+  max-width: 520px;    /* 🔥 Más ancho para que no corte el video */
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.video-carousel-track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.video-item {
+  min-width: 100%;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.video-item video {
+  width: 480px;        /* 🔥 Más ancho (era 360px) */
+  height: 520px;       /* 🔥 Menos alto (era 640px) */
+  object-fit: cover;
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+  display: block;
+}
+
+.video-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  border: none;
+  width: 70px;        /* 🔥 MÁS GRANDE (era 50px) */
+  height: 70px;       /* 🔥 MÁS GRANDE (era 50px) */
+  border-radius: 50%;
+  font-size: 28px;    /* 🔥 FLECHA MÁS GRANDE (era 20px) */
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-arrow:hover {
+  background: rgba(0, 0, 0, 0.9);
+  transform: translateY(-50%) scale(1.1);
+}
+.video-prev {
+  left: 10px;
+}
+
+.video-next {
+  right: 10px;
+}
+
+.video-dots {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 40px;
+}
+
+.video-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);  /* 🔥 Dots blancos semi-transparentes */
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.video-dot.active {
+  background: #ffffff;  /* 🔥 Dot activo blanco */
+  transform: scale(1.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .video-item video {
+    width: 340px;      /* 🔥 Más ancho en móvil */
+    height: 460px;     /* 🔥 Menos alto en móvil */
+  }
+
+  .video-arrow {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+
+  .video-prev {
+    left: -50px;
+  }
+
+  .video-next {
+    right: -50px;
+  }
+}
+
+
+
+.video-carousel-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.video-carousel-header h2 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 32px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+  color: #1a1a1a;
+}
+
+.video-carousel-header p {
+  font-size: 14px;
+  color: #666;
+  letter-spacing: 0.5px;
+}
+
+
+
+/* =======================================
+   FOOTER
+======================================= */
+
+.site-footer {
+  background: #000000;
+  padding: 18px 0;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.site-footer p {
+  margin: 0;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.8px;
+  font-weight: 300;
+}
+
+.site-footer strong {
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 500;
+  letter-spacing: 1.2px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .site-footer {
+    padding: 15px 0;
+  }
+  
+  .site-footer p {
+    font-size: 10px;
+  }
+}
+
+
+/* =======================================
+   FIRMA
+======================================= */
+/* =======================================
+   FIRMA
+======================================= */
+
+.firma-imagen {
+  display: block;
+  max-width: 200px;
+  height: auto;
+  margin-top: 40px;
+  margin-left: 0;
+  opacity: 0.9;
+  filter: brightness(1.1);
+}
+
+/* Para la sección About - la firma va después del grid */
+.about-inner .firma-imagen {
+  grid-column: 1 / -1; /* 🔥 Ocupa ambas columnas del grid */
+  margin-left: 0;
+  margin-top: 50px;
+}
+
+/* Para la sección Blog */
+.blog-service-content .firma-imagen {
+  margin-left: 0;
+  margin-top: 30px;
+  width: 100%;
+  max-width: 200px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .about-inner .firma-imagen {
+    margin-top: 30px;
+  }
+  
+  .firma-imagen {
+    max-width: 150px;
+  }
+}
