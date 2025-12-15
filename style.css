@@ -2027,6 +2027,8 @@ section[id] {
 /* =======================================
    FIRMA
 ======================================= */
+
+
 /* =======================================
    FIRMA
 ======================================= */
@@ -2035,34 +2037,175 @@ section[id] {
   display: block;
   max-width: 200px;
   height: auto;
-  margin-top: 40px;
-  margin-left: 0;
   opacity: 0.9;
+}
+
+/* Para la sección About */
+.about-content .firma-imagen {
+  margin-top: 40px;
+  margin-left: auto;
+  margin-right: 0;
   filter: brightness(1.1);
 }
 
-/* Para la sección About - la firma va después del grid */
-.about-inner .firma-imagen {
-  grid-column: 1 / -1; /* 🔥 Ocupa ambas columnas del grid */
-  margin-left: 0;
+/* 🔥 FIRMA EN EL HERO DEL BLOG */
+.blog-hero-content .firma-imagen {
   margin-top: 50px;
-}
-
-/* Para la sección Blog */
-.blog-service-content .firma-imagen {
-  margin-left: 0;
-  margin-top: 30px;
-  width: 100%;
-  max-width: 200px;
+  margin-left: auto;
+  margin-right: 80px; /* Separación del borde derecho */
+  filter: brightness(1.1);
+  max-width: 250px;
 }
 
 /* Responsive */
 @media (max-width: 900px) {
-  .about-inner .firma-imagen {
-    margin-top: 30px;
+  .about-content .firma-imagen,
+  .blog-hero-content .firma-imagen {
+    margin-left: auto;
+    margin-right: auto;
   }
   
   .firma-imagen {
     max-width: 150px;
+  }
+}
+
+
+
+
+
+/* =======================================
+   POLÍTICAS - ENLACE Y MODAL
+======================================= */
+
+/* Caja del enlace de políticas */
+.policies-link-container {
+  margin-top: 35px;
+  padding: 20px;
+  border: 2px solid #ff4b3a;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.policies-link {
+  color: #ff4b3a;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.policies-link:hover {
+  color: #ff6d5d;
+  transform: translateY(-2px);
+}
+
+/* Modal de políticas */
+.policies-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  padding: 20px;
+}
+
+.policies-modal.active {
+  display: flex;
+}
+
+.policies-modal-content {
+  background: #1a1a1a;
+  border-radius: 12px;
+  max-width: 800px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 40px;
+  position: relative;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+}
+
+.policies-modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: none;
+  background: #ff4b3a;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.policies-modal-close:hover {
+  background: #ff6d5d;
+  transform: rotate(90deg);
+}
+
+.policies-modal h2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #ff4b3a;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.policies-modal p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #d0d0d0;
+  margin-bottom: 20px;
+}
+
+.policies-modal h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 25px;
+  margin-bottom: 12px;
+  color: #fff;
+}
+
+/* Scrollbar personalizado */
+.policies-modal-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.policies-modal-content::-webkit-scrollbar-track {
+  background: #0a0a0a;
+  border-radius: 10px;
+}
+
+.policies-modal-content::-webkit-scrollbar-thumb {
+  background: #ff4b3a;
+  border-radius: 10px;
+}
+
+.policies-modal-content::-webkit-scrollbar-thumb:hover {
+  background: #ff6d5d;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .policies-modal-content {
+    padding: 30px 20px;
+  }
+
+  .policies-modal h2 {
+    font-size: 22px;
   }
 }

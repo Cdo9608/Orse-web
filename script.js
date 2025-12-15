@@ -1063,3 +1063,47 @@ document.addEventListener('DOMContentLoaded', function() {
   updateCarousel();
   
 });
+
+
+
+
+// =======================================
+// MODAL DE POLÍTICAS Y CONDICIONES
+// =======================================
+
+document.addEventListener('DOMContentLoaded', function() {
+  const openBtn = document.getElementById('openPoliciesModal');
+  const closeBtn = document.getElementById('closePoliciesModal');
+  const modal = document.getElementById('policiesModal');
+
+  if (!openBtn || !closeBtn || !modal) return;
+
+  // Abrir modal
+  openBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  });
+
+  // Cerrar modal con botón X
+  closeBtn.addEventListener('click', () => {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  });
+
+  // Cerrar modal al hacer clic fuera
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
+
+  // Cerrar modal con tecla ESC
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('active')) {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
+});
