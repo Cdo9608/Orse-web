@@ -1,4 +1,4 @@
-// === ROTACIÓN DE PALABRAS (tu código existente) ===
+
 const words = ["Creando", "Diseñando"];
 let index = 0;
 
@@ -22,20 +22,16 @@ setInterval(() => {
 }, 2500);
 
 
-
-// ===============================
-// HEADER TRANSPARENTE SOLO EN HOME
-// ===============================
 const header = document.querySelector('.site-header');
 const heroSection = document.querySelector('#home');
 
 function updateHeaderState() {
   if (!header || !heroSection) return;
 
-  // parte baja del hero respecto a la ventana
+
   const heroBottom = heroSection.getBoundingClientRect().bottom;
 
-  // cuando ya saliste del hero, quita la clase
+
   if (heroBottom <= header.offsetHeight + 40) {
     document.body.classList.remove('on-hero');
   } else {
@@ -43,26 +39,14 @@ function updateHeaderState() {
   }
 }
 
-// al cargar la página
+
 window.addEventListener('load', updateHeaderState);
-// al hacer scroll
+
 window.addEventListener('scroll', updateHeaderState);
-// por si cambias tamaño de ventana
+
 window.addEventListener('resize', updateHeaderState);
 
 
-
-// =======================================
-//  MODAL PORTAFOLIO / OBRAS
-// =======================================
-
-/* ============================
-   PORTAFOLIO: MODAL + SLIDES
-   ============================ */
-
-// Datos de ejemplo: cambia las rutas por tus imágenes reales.
-// Cada categoría tiene un array de "slides".
-// Cada slide: 2 imágenes principales + varios mockups.
 const portfolioData = {
 
 
@@ -164,9 +148,9 @@ const portfolioData = {
 
   'Logos': [
     {
-      // sin imágenes grandes
+
       mains: [],
-      // solo cuadritos tipo mockup
+
       mockups: [
         'imgs/logos/logo_1.png',
         'imgs/logos/logo_2.jpg',
@@ -192,9 +176,9 @@ const portfolioData = {
 
   'Social Media': [
     {
-      // sin imágenes grandes
+
       mains: [],
-      // solo cuadritos tipo mockup
+
       mockups: [
         'imgs/social_media/social_media_1.png',
         'imgs/social_media/social_media_2.png',
@@ -233,9 +217,9 @@ const portfolioData = {
 
   'Ilustración': [
     {
-      // sin imágenes grandes
+
       mains: [],
-      // solo cuadritos tipo mockup
+
       mockups: [
         'imgs/ilustracion/ilustracion_1.png',
         'imgs/ilustracion/ilustracion_2.png',
@@ -277,9 +261,9 @@ const portfolioData = {
 
   'Diseño Textil': [
     {
-      // sin imágenes grandes
+
       mains: [],
-      // solo cuadritos tipo mockup
+
       mockups: [
         'imgs/textil/textil1.1.png',
         'imgs/textil/textil2.1.png',
@@ -326,7 +310,7 @@ let currentCategory = null;
 let currentSlide    = 0;
 let slideTimer      = null;
 
-/* Abre el modal en una categoría */
+
 function openPortfolioModal(categoryName) {
   currentCategory = categoryName;
   currentSlide = 0;
@@ -337,30 +321,30 @@ function openPortfolioModal(categoryName) {
   modalEl.style.display = 'flex';
 }
 
-/* Cierra el modal */
+
 function closePortfolioModal() {
   modalEl.style.display = 'none';
   stopAutoSlide();
 }
 
-/* Render de un slide */
+
 function renderModalSlide() {
   const slides = portfolioData[currentCategory];
   if (!slides || !slides.length) return;
 
   const slide = slides[currentSlide];
 
-  // Título
+
   titleEl.textContent = currentCategory;
 
   const pmBody = document.querySelector('.pm-body');
 
-  // limpiamos estados anteriores
+
   pmBody.classList.remove('pm-grid-only');
   mainImagesEl.innerHTML = '';
   mockupsEl.innerHTML = '';
 
-  // Si hay imágenes principales → layout normal
+
   if (slide.mains && slide.mains.length > 0) {
     slide.mains.forEach(src => {
       const img = document.createElement('img');
@@ -377,7 +361,7 @@ function renderModalSlide() {
     });
 
   } else {
-    // === MODO LOGOS: solo mockups, sin imágenes grandes ===
+
     pmBody.classList.add('pm-grid-only');
 
     slide.mockups.forEach(src => {
@@ -389,7 +373,7 @@ function renderModalSlide() {
   }
 
 
-  // Dots
+
   dotsEl.innerHTML = '';
   slides.forEach((_, idx) => {
     const dot = document.createElement('button');
@@ -403,16 +387,12 @@ function renderModalSlide() {
     dotsEl.appendChild(dot);
   });
 
-  // 👇👇 IMPORTANTE: activar zoom después de crear las imágenes
+
   enableImageZoom();
 }
 
 
 
-
-
-
-/* Auto slide dentro de la categoría actual */
 function startAutoSlide() {
   stopAutoSlide();
   slideTimer = setInterval(() => {
@@ -420,7 +400,7 @@ function startAutoSlide() {
     if (!slides || !slides.length) return;
     currentSlide = (currentSlide + 1) % slides.length;
     renderModalSlide();
-  }, 15000);   // 10 segundos
+  }, 15000);   
 }
 
 function stopAutoSlide() {
@@ -430,7 +410,7 @@ function stopAutoSlide() {
   }
 }
 
-/* Cambio de categoría con flechas */
+
 function changeCategory(step) {
   const idx = portfolioCategories.indexOf(currentCategory);
   if (idx === -1) return;
@@ -441,7 +421,7 @@ function changeCategory(step) {
   startAutoSlide();
 }
 
-// ==== Flechas del carrusel (abajo, junto a las barritas) ====
+
 const btnSlidePrev = document.querySelector('.pm-prev-slide');
 const btnSlideNext = document.querySelector('.pm-next-slide');
 
@@ -464,7 +444,6 @@ if (btnSlidePrev && btnSlideNext) {
 }
 
 
-/* Eventos de los cuadros en PORTAFOLIO */
 document.querySelectorAll('.work-box').forEach(box => {
   box.addEventListener('click', () => {
     const cat = box.dataset.category;
@@ -474,14 +453,14 @@ document.querySelectorAll('.work-box').forEach(box => {
   });
 });
 
-/* Eventos de cierre y flechas */
+
 btnClose.addEventListener('click', closePortfolioModal);
 backdropEl.addEventListener('click', closePortfolioModal);
 
 btnPrevCat.addEventListener('click', () => changeCategory(-1));
 btnNextCat.addEventListener('click', () => changeCategory(1));
 
-/* Opcional: cerrar con ESC */
+
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape' && modalEl.style.display === 'flex') {
     closePortfolioModal();
@@ -489,25 +468,14 @@ document.addEventListener('keydown', (e) => {
 });
 
 
-/* ================================
-   VISOR DE IMAGEN EN GRANDE
-================================ */
-// ===============================
-// ZOOM SOLO PARA LAS MAIN-IMAGE
-// ===============================
-
-// ===============================
-// ZOOM SOLO PARA LAS MAIN-IMAGE
-// ===============================
 
 function enableImageZoom() {
   const viewer    = document.getElementById("image-viewer");
   const viewerImg = document.getElementById("iv-img");
   const closeBtn  = document.getElementById("iv-close");
 
-  // SOLO las imágenes principales
   document.querySelectorAll(".pm-main-image").forEach(img => {
-    // Evita agregar el mismo listener muchas veces
+
     if (img.dataset.zoomBound === "1") return;
     img.dataset.zoomBound = "1";
 
@@ -518,19 +486,19 @@ function enableImageZoom() {
     });
   });
 
-  // Cerrar con la X
+
   closeBtn.onclick = () => {
     viewer.style.display = "none";
   };
 
-  // Cerrar haciendo click fuera de la imagen
+
   viewer.onclick = (e) => {
     if (e.target === viewer) {
       viewer.style.display = "none";
     }
   };
 
-  // Cerrar con ESC
+
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
       viewer.style.display = "none";
@@ -539,12 +507,11 @@ function enableImageZoom() {
 }
 
 
-// ==== SCROLL SPY PARA ILUMINAR MENÚ ====
 const sections = document.querySelectorAll("section[id]");
 const navLinks = document.querySelectorAll(".main-nav a");
 
 function activateMenuOnScroll() {
-  let scrollPos = window.scrollY + 150; // margen para activar antes
+  let scrollPos = window.scrollY + 150; 
 
   sections.forEach(section => {
     let top = section.offsetTop;
@@ -563,58 +530,53 @@ function activateMenuOnScroll() {
 window.addEventListener("scroll", activateMenuOnScroll);
 
 
-// =======================================
-// SLIDER DE FOTOS EN CONTACTO
-// =======================================
-
 document.addEventListener("DOMContentLoaded", function () {
   const slides = document.querySelectorAll(".contact-photo");
   const dots = document.querySelectorAll(".slider-dot");
   let currentSlide = 0;
   let sliderInterval;
 
-  // Función para cambiar de slide
+
   function goToSlide(index) {
-    // Remover clase active de todos
+
     slides.forEach(slide => slide.classList.remove("active"));
     dots.forEach(dot => dot.classList.remove("active"));
 
-    // Agregar clase active al slide actual
+
     slides[index].classList.add("active");
     dots[index].classList.add("active");
 
     currentSlide = index;
   }
 
-  // Función para ir al siguiente slide
+
   function nextSlide() {
     let next = (currentSlide + 1) % slides.length;
     goToSlide(next);
   }
 
-  // Auto-slide cada 5 segundos
+
   function startAutoSlide() {
     sliderInterval = setInterval(nextSlide, 5000);
   }
 
-  // Detener auto-slide
+
   function stopAutoSlide() {
     clearInterval(sliderInterval);
   }
 
-  // Click en los dots
+
   dots.forEach((dot, index) => {
     dot.addEventListener("click", () => {
       stopAutoSlide();
       goToSlide(index);
-      startAutoSlide(); // Reiniciar el auto-slide
+      startAutoSlide(); 
     });
   });
 
-  // Iniciar el slider automático
+
   startAutoSlide();
 
-  // Pausar cuando el usuario no está viendo la página
   document.addEventListener("visibilitychange", () => {
     if (document.hidden) {
       stopAutoSlide();
@@ -624,9 +586,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// =======================================
-// MANEJO DEL FORMULARIO DE CONTACTO
-// =======================================
+
 
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.querySelector(".contact-form");
@@ -646,35 +606,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-
-// =======================================
-// PROTECCIÓN DE IMÁGENES
-// =======================================
-// =======================================
-// PROTECCIÓN DE IMÁGENES
-// =======================================
-
 document.addEventListener('DOMContentLoaded', function() {
-  
-  // Función para proteger imágenes
+
   function protegerImagenes(imagenes) {
     imagenes.forEach(img => {
       if (img) {
-        // Bloquear clic derecho
+
         img.addEventListener('contextmenu', function(e) {
           e.preventDefault();
           return false;
         });
         
-        // Bloquear arrastrar
+
         img.addEventListener('dragstart', function(e) {
           e.preventDefault();
           return false;
         });
         
-        // Bloquear selección
+
         img.addEventListener('mousedown', function(e) {
-          if (e.button === 2) { // Botón derecho
+          if (e.button === 2) { 
             e.preventDefault();
             return false;
           }
@@ -683,24 +634,24 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // 1️⃣ Proteger imágenes del slider de contacto
+
   const contactPhotos = document.querySelectorAll('.contact-photo');
   protegerImagenes(contactPhotos);
 
-  // 2️⃣ Proteger imagen de "Acerca de"
+
   const aboutImage = document.querySelector('.about-image img');
   if (aboutImage) {
     protegerImagenes([aboutImage]);
   }
 
-  // 3️⃣ Proteger imágenes del modal de portafolio
+
   const portfolioMainImages = document.querySelectorAll('.pm-main-image');
   const portfolioMockups = document.querySelectorAll('.pm-mockup');
   
   protegerImagenes(portfolioMainImages);
   protegerImagenes(portfolioMockups);
 
-  // 3️⃣ Observador para proteger imágenes que se cargan dinámicamente
+
   const observer = new MutationObserver(function(mutations) {
     mutations.forEach(function(mutation) {
       if (mutation.addedNodes.length) {
@@ -714,7 +665,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // Observar cambios en el modal
+
   const modalBody = document.querySelector('.pm-body');
   if (modalBody) {
     observer.observe(modalBody, {
@@ -723,7 +674,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // 4️⃣ También proteger cuando se cambia de slide en el modal
+
   const modalEl = document.getElementById('portfolio-modal');
   if (modalEl) {
     modalEl.addEventListener('click', function() {
@@ -740,10 +691,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-// =======================================
-// CARRUSEL ESTUDIO EXPERIMENTAL CON VIDEO
-// =======================================
-
 document.addEventListener('DOMContentLoaded', function() {
   
   const carouselItems = document.querySelectorAll('.carousel-track img, .carousel-track video');
@@ -755,18 +702,17 @@ document.addEventListener('DOMContentLoaded', function() {
   
   let currentIndex = 0;
   const totalItems = carouselItems.length;
-  const imageDuration = 2000; // 4 segundos para imágenes
+  const imageDuration = 2000; 
   let progressInterval;
   let slideTimeout;
   let isVideoPlaying = false;
   
-  // Actualizar contador total
+
   if (totalCounter) {
     totalCounter.textContent = totalItems;
   }
   
   function updateCarousel() {
-    // Remover active de todos
     carouselItems.forEach(item => {
       item.classList.remove('active');
       if (item.tagName === 'VIDEO') {
@@ -775,23 +721,23 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
     
-    // Activar el actual
+
     const currentItem = carouselItems[currentIndex];
     currentItem.classList.add('active');
     
-    // Actualizar contador
+
     if (currentCounter) {
       currentCounter.textContent = currentIndex + 1;
     }
     
-    // Determinar duración
+
     let duration = imageDuration;
     
     if (currentItem.tagName === 'VIDEO') {
       isVideoPlaying = true;
       currentItem.play();
       
-      // Esperar a que el video cargue su duración
+
       if (currentItem.duration && !isNaN(currentItem.duration)) {
         duration = currentItem.duration * 1000;
       } else {
@@ -799,7 +745,7 @@ document.addEventListener('DOMContentLoaded', function() {
           duration = this.duration * 1000;
           startSlideTimer(duration);
         }, { once: true });
-        return; // Salir y esperar a que cargue
+        return; 
       }
     } else {
       isVideoPlaying = false;
@@ -847,7 +793,6 @@ document.addEventListener('DOMContentLoaded', function() {
     clearTimeout(slideTimeout);
     clearInterval(progressInterval);
     
-    // Pausar video si está activo
     const currentItem = carouselItems[currentIndex];
     if (currentItem && currentItem.tagName === 'VIDEO') {
       currentItem.pause();
@@ -868,17 +813,16 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
   
-  // Iniciar carrusel
+
   updateCarousel();
   
-  // Pausar/reanudar al hacer hover
+
   const carousel = document.querySelector('.blog-about-carousel');
   if (carousel) {
     carousel.addEventListener('mouseenter', stopCarousel);
     carousel.addEventListener('mouseleave', resumeCarousel);
   }
   
-  // Manejar cuando el video termina
   carouselItems.forEach(item => {
     if (item.tagName === 'VIDEO') {
       item.addEventListener('ended', () => {
@@ -889,7 +833,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
   
-  // Pausar cuando no está visible
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) {
       stopCarousel();
@@ -903,11 +846,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-
-// =======================================
-// MODAL "VER TODO" ESTUDIO EXPERIMENTAL
-// =======================================
-
 document.addEventListener('DOMContentLoaded', function () {
   const btnVerTodo   = document.querySelector('.blog-about-btn');
   const expModal     = document.getElementById('exp-modal');
@@ -915,7 +853,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const expBackdrop  = document.querySelector('.exp-modal-backdrop');
   const expGallery   = document.getElementById('exp-gallery');
 
-  // todos los elementos (imágenes y video) del carrusel de la izquierda
+
   const carouselItems = document.querySelectorAll(
     '.blog-about-carousel .carousel-track img, .blog-about-carousel .carousel-track video'
   );
@@ -923,18 +861,18 @@ document.addEventListener('DOMContentLoaded', function () {
   if (!btnVerTodo || !expModal || !expGallery || !carouselItems.length) return;
 
   function openExpModal() {
-    // limpiar galería
+
     expGallery.innerHTML = '';
 
     carouselItems.forEach(item => {
       if (item.tagName === 'IMG') {
-        // duplicar imagen
+
         const img = document.createElement('img');
         img.src = item.src;
         img.alt = item.alt || '';
         expGallery.appendChild(img);
       } else if (item.tagName === 'VIDEO') {
-        // opcional: incluir también el video del final
+       
         const video = document.createElement('video');
         video.controls = true;
         video.muted = false;
@@ -954,7 +892,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     expModal.style.display = 'flex';
-    document.body.style.overflow = 'hidden'; // bloquear scroll de fondo
+    document.body.style.overflow = 'hidden'; 
   }
 
   function closeExpModal() {
@@ -966,7 +904,7 @@ document.addEventListener('DOMContentLoaded', function () {
   expClose.addEventListener('click', closeExpModal);
   expBackdrop.addEventListener('click', closeExpModal);
 
-  // Cerrar con ESC
+
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && expModal.style.display === 'flex') {
       closeExpModal();
@@ -976,10 +914,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-
-// =======================================
-// CARRUSEL DE VIDEOS CON AUTOPLAY
-// =======================================
 
 document.addEventListener('DOMContentLoaded', function() {
   
@@ -999,23 +933,22 @@ document.addEventListener('DOMContentLoaded', function() {
     const offset = currentIndex * itemWidth;
     track.style.transform = `translateX(-${offset}px)`;
     
-    // Actualizar dots
     dots.forEach((dot, index) => {
       dot.classList.toggle('active', index === currentIndex);
     });
     
-    // Pausar todos los videos
+
     videos.forEach(video => {
       video.pause();
       video.currentTime = 0;
     });
     
-    // Reproducir el video actual (opcional, el usuario puede dar play)
+
     const currentVideo = videos[currentIndex];
     if (currentVideo) {
-  // No auto-play, usuario controla con los controles del video
+
       
-      // Cuando termine el video, pasar al siguiente
+     
       currentVideo.onended = () => {
         nextSlide();
       };
@@ -1043,7 +976,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
   
-  // Botones de navegación
+ 
   if (prevBtn) {
     prevBtn.addEventListener('click', prevSlide);
   }
@@ -1052,24 +985,19 @@ document.addEventListener('DOMContentLoaded', function() {
     nextBtn.addEventListener('click', nextSlide);
   }
   
-  // Dots
+
   dots.forEach((dot, index) => {
     dot.addEventListener('click', () => {
       goToSlide(index);
     });
   });
   
-  // Iniciar el primer video
+
   updateCarousel();
   
 });
 
 
-
-
-// =======================================
-// MODAL DE POLÍTICAS Y CONDICIONES
-// =======================================
 
 document.addEventListener('DOMContentLoaded', function() {
   const openBtn = document.getElementById('openPoliciesModal');
@@ -1078,20 +1006,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
   if (!openBtn || !closeBtn || !modal) return;
 
-  // Abrir modal
   openBtn.addEventListener('click', (e) => {
     e.preventDefault();
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
   });
 
-  // Cerrar modal con botón X
   closeBtn.addEventListener('click', () => {
     modal.classList.remove('active');
     document.body.style.overflow = '';
   });
 
-  // Cerrar modal al hacer clic fuera
   modal.addEventListener('click', (e) => {
     if (e.target === modal) {
       modal.classList.remove('active');
@@ -1099,7 +1024,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  // Cerrar modal con tecla ESC
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && modal.classList.contains('active')) {
       modal.classList.remove('active');

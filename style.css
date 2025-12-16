@@ -1,11 +1,7 @@
 section {
-    background-color: #000; /* fondo negro REAL */
+    background-color: #000; 
 }
 
-
-/* ============================= */
-/* RESET */
-/* ============================= */
 * {
   margin: 0;
   padding: 0;
@@ -22,9 +18,7 @@ section[id] {
   scroll-margin-top: 120px;
 }
 
-/* ============================= */
-/* HEADER */
-/* ============================= */
+
 
 .site-header {
   position: fixed;
@@ -41,7 +35,6 @@ section[id] {
   transition: background 0.3s ease, border-bottom-color 0.3s ease;
 }
 
-/* SOLO EN HOME (hero): SIN FRANJA NEGRA */
 body.on-hero .site-header {
   background: transparent;
   border-bottom-color: transparent;
@@ -65,7 +58,7 @@ body.on-hero .site-header {
   width: auto;
 }
 
-/* NAV */
+
 .main-nav ul {
   display: flex;
   gap: 24px;
@@ -86,15 +79,11 @@ body.on-hero .site-header {
 }
 
 
-
-
 section[id] {
-  scroll-margin-top: 0;   /* o simplemente elimina la regla */
+  scroll-margin-top: 0;   
 }
 
-/* ============================= */
-/* HERO */
-/* ============================= */
+
 .hero {
   position: relative;
   min-height: 100vh;
@@ -148,7 +137,7 @@ section[id] {
   margin-bottom: 30px;
 }
 
-/* Redes */
+
 .hero-social {
   display: flex;
   justify-content: center;
@@ -165,7 +154,6 @@ section[id] {
   opacity: 1;
 }
 
-/* Scroll indicator */
 .scroll-container {
   position: absolute;
   bottom: 40px;
@@ -212,7 +200,7 @@ section[id] {
   100% { top: 65px; opacity: 0; }
 }
 
-/* HERO RESPONSIVE */
+
 @media (max-width: 900px) {
   .hero-title {
     font-size: 50px;
@@ -228,9 +216,6 @@ section[id] {
   }
 }
 
-/* ============================= */
-/* ABOUT */
-/* ============================= */
 .about-section {
   padding: 180px 0;
   background: #000;
@@ -270,7 +255,7 @@ section[id] {
   margin-bottom: 20px;
 }
 
-/* ABOUT RESPONSIVE */
+
 @media (max-width: 900px) {
   .about-inner {
     flex-direction: column;
@@ -286,17 +271,15 @@ section[id] {
   }
 }
 
-/* ============================= */
-/* SERVICES */
-/* ============================= */
+
 
 .services-section {
   position: relative;
   padding: 260px 0 150px;
   background: url("imgs/fondo_pt2.png") center/cover no-repeat;
   overflow: hidden;
-  min-height: 100vh;   /* 🔥 NUEVO: que Servicios siempre llene la pantalla */
-  margin-top: 40px;  /* 🔥 BAJA SOLO EL TÍTULO */
+  min-height: 100vh;   
+  margin-top: 40px;  
 }
 
 .services-section::before {
@@ -308,7 +291,6 @@ section[id] {
   z-index: 0;
 }
 
-/* CONTENEDOR PRINCIPAL */
 .services-wrapper {
   position: relative;
   z-index: 10;
@@ -324,14 +306,13 @@ section[id] {
   align-items: flex-start;
 }
 
-/* COLUMNA IZQUIERDA (TEXTO) */
+
 .services-left {
   flex: 0 0 280px;
-  margin-top: 120px;      /* puedes subir/bajar este valor a gusto */
+  margin-top: 120px;      
   text-align: left;
-  transform: none;        /* 🔥 quitamos el desplazamiento negativo */
+  transform: none;        
 }
-
 
 .services-title {
   font-family: "Montserrat", sans-serif;
@@ -349,15 +330,14 @@ section[id] {
   max-width: 350px;
 }
 
-/* COLUMNA DERECHA (GRID) */
+
 .services-right {
   flex: 1;
   min-width: 0;
-  margin-left: 0;   /* 🔥 sin empuje lateral */
+  margin-left: 0;  
 }
 
 
-/* GRID DE TARJETAS */
 .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -366,7 +346,6 @@ section[id] {
 }
 
 
-/* TARJETAS */
 .service-box {
   padding: 30px 25px;
   border-radius: 12px;
@@ -400,7 +379,6 @@ section[id] {
   opacity: 0.8;
 }
 
-/* SERVICES RESPONSIVE */
 @media (max-width: 1200px) {
   .services-wrapper {
     flex-direction: column;
@@ -441,9 +419,7 @@ section[id] {
   }
 }
 
-/* ============================= */
-/* WORKS / OBRAS */
-/* ============================= */
+
 
 .works-section {
   display: grid;
@@ -451,7 +427,7 @@ section[id] {
   grid-template-columns: 260px 1fr;
   gap: 60px;
   padding: 160px 0;
-  width: min(95%, 1400px);  /* se adapta al ancho de pantalla */
+  width: min(95%, 1400px);  
   margin: 0 auto;
 }
 
@@ -470,8 +446,6 @@ section[id] {
 }
 
 
-
-
 .works-title::after {
   content: "";
   display: block;
@@ -481,8 +455,6 @@ section[id] {
   margin-top: 14px;
   border-radius: 4px;
 }
-
-
 
 .works-title {
   font-family: "Montserrat", sans-serif;
@@ -500,14 +472,12 @@ section[id] {
 }
 
 
-/* GRID DE CUADROS */
 .works-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(260px, 1fr));
   gap: 30px;
 }
 
-/* CUADRO INDIVIDUAL */
 .work-box {
   position: relative;
   height: 330px;
@@ -519,18 +489,16 @@ section[id] {
   background-repeat: no-repeat;
 }
 
-/* Capa oscura */
+
 .work-box::before {
   content: "";
   position: absolute;
   inset: 0;
-  /*background: rgba(0,0,0,0.35);*/
   background: linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.35));
   backdrop-filter: blur(2px);
   transition: 0.3s ease;
 }
 
-/* Texto + signo + */
 .work-box span {
   position: absolute;
   top: 50%;
@@ -550,11 +518,10 @@ section[id] {
 }
 
 .work-box span strong {
-  font-size: 20px; /* antes 26px */
+  font-size: 20px; 
   opacity: 0.9;
 }
 
-/* Hover */
 .work-box:hover::before {
   background: rgba(0,0,0,0.15);
   backdrop-filter: blur(0);
@@ -565,7 +532,7 @@ section[id] {
   opacity: 1;
 }
 
-/* Responsive OBRAS */
+
 @media (max-width: 1200px) {
   .works-section {
     grid-template-columns: 1fr;
@@ -573,7 +540,7 @@ section[id] {
   }
 
 .works-left {
-  margin-top: 200px;  /* puedes ajustar este valor a tu gusto */
+  margin-top: 200px;  
   margin-left: 0;
 }
 
@@ -584,13 +551,13 @@ section[id] {
 }
 
 .works-left {
-  margin-top: 80px; /* igual que ACERCA DE */
+  margin-top: 80px; 
 }
 
 .works-left {
   display: flex;
   flex-direction: column;
-  justify-content: center;   /* centra verticalmente */
+  justify-content: center;   
   height: 100%;
 }
 
@@ -606,19 +573,12 @@ section[id] {
   }
 }
 
-/* ============================= */
-/* MODAL PORTAFOLIO */
-/* ============================= */
 
-
-/* ============================= */
-/* MODAL PORTAFOLIO (NUEVO) */
-/* ============================= */
 
 .portfolio-modal {
   position: fixed;
   inset: 0;
-  display: none;             /* se muestra con JS */
+  display: none;            
   justify-content: center;
   align-items: center;
   z-index: 10000;
@@ -632,14 +592,13 @@ section[id] {
   backdrop-filter: blur(6px);
 }
 
-/* Caja principal */
 .pm-dialog {
   position: relative;
   z-index: 1;
   width: 94%;
   max-width: 1500px;
   max-height: 92vh;
-  background: #111418;            /* color del recuadro */
+  background: #111418;            
   border-radius: 20px;
   padding: 26px 34px 20px;
   overflow: hidden;
@@ -648,18 +607,15 @@ section[id] {
   box-shadow: 0 0 40px rgba(0,0,0,0.55);
 }
 
-/* CABECERA (título + botones) */
 .pm-header {
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;   /* 🔥 CENTRA EL TÍTULO */
+  justify-content: center;   
   margin-bottom: 22px;
   padding-bottom: 14px;
   border-bottom: 1px solid rgba(255,255,255,0.09);
 }
-
-
 
 
 #pm-title {
@@ -670,7 +626,6 @@ section[id] {
   letter-spacing: -0.5px;
 }
 
-/* Botones de la cabecera */
 .pm-header-actions {
   position: absolute;
   right: 0;
@@ -701,7 +656,6 @@ section[id] {
   background: #3a424a;
 }
 
-/* CUERPO: columnas de imágenes */
 .pm-body {
   display: grid;
   grid-template-columns: 480px 1fr;
@@ -712,32 +666,25 @@ section[id] {
 
 
 
-/* ===== MODO LOGOS: solo cuadritos tipo mockup ===== */
 .pm-body.pm-grid-only {
-  grid-template-columns: 1fr; /* solo una columna */
+  grid-template-columns: 1fr; 
 }
 
-/* ocultamos la columna izquierda cuando es solo logos */
 .pm-body.pm-grid-only .pm-left,
 .pm-body.pm-grid-only #pm-main-images {
   display: none;
 }
 
-/* los mockups ocupan todo el ancho y puedes ajustar cuántas columnas quieres */
+
 .pm-body.pm-grid-only #pm-mockups {
-  grid-template-columns: repeat(4, 1fr); /* prueba 3 o 4 según lo que te guste */
+  grid-template-columns: repeat(4, 1fr); 
 }
 
-/* si quieres que sean un poco más cuadrados, puedes ajustar la proporción */
 .pm-body.pm-grid-only .pm-mockup {
-  aspect-ratio: 4 / 4; /* más cuadrado (opcional) */
+  aspect-ratio: 4 / 4; 
 }
 
 
-
-
-
-/* Columna izquierda (2 imágenes grandes) */
 .pm-left {
   display: flex;
   flex-direction: column;
@@ -746,17 +693,15 @@ section[id] {
 
 .pm-main-image {
   width: 100%;
-  max-height: 420px;      /* 🔥 vuelve al alto “cuadro anterior” */
+  max-height: 420px;      
   height: 100%;
   border-radius: 14px;
-  object-fit: contain;    /* 🔥 se adapta sin recortar */
-  background: #000;       /* relleno si sobra espacio */
-  padding: 0;             /* sin extra que aumente la altura */
+  object-fit: contain;    
+  background: #000;      
+  padding: 0;            
 }
 
 
-
-/* Columna derecha (mockups) */
 .pm-right {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -764,32 +709,27 @@ section[id] {
   padding-top: 10px;
 }
 
-/* Segunda fila de mockups: bájala un poco */
+
 .pm-right .pm-mockup:nth-child(n+4) {
-  margin-top: 40px;   /* prueba con 30 / 50 hasta que coincida perfecto */
+  margin-top: 40px;  
 }
 
-
-/* En modo LOGOS (solo mockups) quitamos ese desplazamiento */
 .pm-body.pm-grid-only .pm-mockup:nth-child(n+4) {
   margin-top: 0;
 }
 
-
-/* Tarjetas de mockup */
 .pm-mockup {
   width: 100%;
   aspect-ratio: 4 / 5;
   border-radius: 12px;
-  background: #1b1f24;           /* fondo distinto para marcar el cuadro */
+  background: #1b1f24;           
   padding: 6px;
-  object-fit: contain;           /* no recorta la imagen */
+  object-fit: contain;           
   border: 1px solid #2c3238;
   box-shadow: 0 2px 8px rgba(0,0,0,0.45);
-    min-height: 260px;   /* ajustable */
+    min-height: 260px;   
 }
 
-/* Dots del carrusel */
 .pm-dots {
   display: flex;
   align-items: center;
@@ -798,7 +738,6 @@ section[id] {
   margin-top: 12px;
 }
 
-/* Track donde viven las barritas */
 .pm-dots-track {
   display: flex;
   gap: 10px;
@@ -806,7 +745,6 @@ section[id] {
   justify-content: center;
 }
 
-/* Barritas */
 .pm-dot {
   width: 26px;
   height: 6px;
@@ -823,7 +761,6 @@ section[id] {
   transform: scale(1.15);
 }
 
-/* Flechas laterales (abajo) */
 .pm-dots-arrow {
   background: transparent;
   border: none;
@@ -840,7 +777,6 @@ section[id] {
 }
 
 
-/* Responsive modal */
 @media (max-width: 980px) {
   .pm-body {
     grid-template-columns: 1fr;
@@ -868,13 +804,6 @@ section[id] {
 }
 
 
-
-
-/* ============================== */
-/* VISOR DE IMAGEN (LIGHTBOX)     */
-/* ============================== */
-
-/* VISOR DE IMÁGENES GRANDES */
 .image-viewer {
   position: fixed;
   inset: 0;
@@ -901,16 +830,12 @@ section[id] {
 }
   
 
-
-/* === FONDO BLANCO SOLO PARA LOGOS === */
 .pm-body.pm-grid-only .pm-mockup {
   background: #F4F4F4 !important;
   border: 1px solid #e5e5e5 !important;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-
-/* Opcional: sombras más suaves para logos */
 .pm-body.pm-grid-only .pm-mockup {
   box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
@@ -945,13 +870,6 @@ section[id] {
 
 
 
-/* =======================================
-   CONTACTO
-======================================= */
-/* =======================================
-   CONTACTO - VERSIÓN FINAL AJUSTADA
-======================================= */
-
 .contact-section {
   padding: 140px 0 100px;
   background: #000;
@@ -960,22 +878,21 @@ section[id] {
   align-items: center;
 }
 
-/* Contenedor principal */
+
 .contact-container {
   width: 90%;
   max-width: 1400px;
   margin: 0 auto;
 }
 
-/* Cabecera con CONTACTO grande y texto encima - AJUSTADO */
 .contact-header {
   position: relative;
   text-align: center;
-  margin-bottom: 20px; /* 🔥 REDUCIDO de 60px a 40px */
+  margin-bottom: 20px; 
 }
 
 .contact-title-ghost {
-  font-size: 80px;  /* 🔥 REDUCIDO de 120px a 80px */
+  font-size: 80px;  
   letter-spacing: 0.35em;
   text-transform: uppercase;
   color: #ffffff;
@@ -998,17 +915,17 @@ section[id] {
   color: #f5f5f5;
 }
 
-/* Layout dos columnas - GRID BALANCEADO */
+
 .contact-body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 60px;
-  align-items: center; /* 🔥 CAMBIADO de 'start' a 'center' */
+  align-items: center; 
   max-width: 1300px;
   margin: 0 auto;
 }
 
-/* IZQUIERDA - Formulario */
+
 .contact-left {
   width: 100%;
   max-width: 540px;
@@ -1031,7 +948,6 @@ section[id] {
   margin-bottom: 35px;
 }
 
-/* Formulario */
 .contact-form {
   margin-top: 0;
 }
@@ -1106,7 +1022,6 @@ section[id] {
   box-shadow: 0 4px 20px rgba(255, 75, 58, 0.4);
 }
 
-/* DERECHA - Slider de fotos */
 .contact-right {
   width: 100%;
   max-width: 550px;
@@ -1114,24 +1029,22 @@ section[id] {
   padding-left: 30px;
 }
 
-/* Contenedor del slider - AJUSTADO */
 .contact-photo-slider {
   position: relative;
   width: 100%;
-  height: 650px; /* 🔥 ALTURA AJUSTADA */
+  height: 650px; 
   overflow: hidden;
   border-radius: 0;
   background: #000;
 }
 
-/* Imágenes del slider - CONTAIN para que no se recorte */
 .contact-photo {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain; /* 🔥 CONTAIN en lugar de COVER - no recorta */
+  object-fit: contain; 
   object-position: center;
   opacity: 0;
   transition: opacity 1.2s ease-in-out;
@@ -1143,7 +1056,6 @@ section[id] {
   z-index: 1;
 }
 
-/* Controles del slider (círculos) */
 .slider-controls {
   position: absolute;
   bottom: 30px;
@@ -1176,7 +1088,6 @@ section[id] {
   transform: scale(1.15);
 }
 
-/* Mensaje de éxito */
 .success-msg {
   display: none;
   margin-top: 20px;
@@ -1189,7 +1100,7 @@ section[id] {
   border-radius: 4px;
 }
 
-/* RESPONSIVE */
+
 @media (max-width: 1200px) {
   .contact-body {
     gap: 50px;
@@ -1298,11 +1209,8 @@ section[id] {
 }
 
 
-/* =======================================
-   PROTECCIÓN DE IMÁGENES
-======================================= */
 
-/* Proteger imágenes del slider de contacto */
+
 .contact-photo {
   pointer-events: none;
   user-select: none;
@@ -1316,7 +1224,7 @@ section[id] {
   user-drag: none;
 }
 
-/* Proteger imagen de "Acerca de" */
+
 .about-image img {
   pointer-events: none;
   user-select: none;
@@ -1330,7 +1238,7 @@ section[id] {
   user-drag: none;
 }
 
-/* Proteger imágenes del modal de portafolio */
+
 .pm-main-image,
 .pm-mockup {
   pointer-events: none;
@@ -1345,12 +1253,12 @@ section[id] {
   user-drag: none;
 }
 
-/* Mantener los controles del slider funcionando */
+
 .slider-controls {
   pointer-events: auto;
 }
 
-/* Mantener los botones del modal funcionando */
+
 .pm-close,
 .pm-arrow,
 .pm-dot,
@@ -1358,7 +1266,7 @@ section[id] {
   pointer-events: auto;
 }
 
-/* Evitar selección de texto sobre las imágenes */
+
 .pm-body,
 .contact-photo-slider {
   user-select: none;
@@ -1369,16 +1277,11 @@ section[id] {
 
 
 
-/* =======================================
-   SECCIÓN BLOG
-======================================= */
-
 .blog-section {
   background: #000;
   width: 100%;
 }
 
-/* HERO BLOG */
 .blog-hero {
   position: relative;
   min-height: 100vh;
@@ -1387,7 +1290,7 @@ section[id] {
   justify-content: center;
   text-align: center;
   background: url('imgs/blog1.png') center/contain no-repeat;
-  background-color: #000; /* Fondo negro para los espacios */
+  background-color: #000; 
   padding: 150px 20px 100px;
 }
 
@@ -1434,7 +1337,7 @@ section[id] {
   color: rgba(255, 255, 255, 0.9);
 }
 
-/* CONTENIDO PRINCIPAL */
+
 .blog-main-content {
   background: #f5f5f0;
   padding: 0;
@@ -1452,10 +1355,10 @@ section[id] {
 }
 
 
-/* VIDEO DENTRO DEL CUADRO BLANCO */
+
 .blog-video-inner {
   margin-top: 50px;
-  width: 80%;  /* 🔥 REDUCE EL ANCHO (era 100%) */
+  width: 80%;  
   margin-left: auto;
   margin-right: auto;
   border-radius: 12px;
@@ -1467,11 +1370,11 @@ section[id] {
   width: 100%;
   height: auto;
   display: block;
-  max-height: 400px;  /* 🔥 REDUCE LA ALTURA (era 600px) */
-  object-fit: contain;  /* 🔥 CAMBIADO de 'cover' a 'contain' */
+  max-height: 400px; 
+  object-fit: contain;  
 }
 
-/* RESPONSIVE */
+
 @media (max-width: 768px) {
   .blog-video-inner {
     width: 90%;
@@ -1514,7 +1417,6 @@ section[id] {
   font-weight: 600;
 }
 
-/* SECCIÓN ESTUDIO EXPERIMENTAL */
 .blog-about-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1570,7 +1472,7 @@ section[id] {
   transform: translateY(-2px);
 }
 
-/* CARRUSEL DE ESTUDIOS EXPERIMENTALES */
+
 .blog-about-carousel {
   position: relative;
   width: 100%;
@@ -1603,7 +1505,7 @@ section[id] {
   z-index: 1;
 }
 
-/* Barra de progreso */
+
 .carousel-progress {
   position: absolute;
   bottom: 20px;
@@ -1623,7 +1525,7 @@ section[id] {
   transition: width 0.1s linear;
 }
 
-/* Contador */
+
 .carousel-counter {
   position: absolute;
   top: 20px;
@@ -1637,7 +1539,7 @@ section[id] {
   z-index: 10;
 }
 
-/* RESPONSIVE */
+
 @media (max-width: 1200px) {
   .blog-about-carousel {
     height: 500px;
@@ -1658,8 +1560,6 @@ section[id] {
 
 
 
-
-/* RESPONSIVE */
 @media (max-width: 1200px) {
   .blog-services-grid {
     grid-template-columns: 1fr;
@@ -1710,7 +1610,6 @@ section[id] {
 }
 
 
-/* Video en el carrusel */
 .carousel-track video {
   position: absolute;
   top: 0;
@@ -1739,21 +1638,19 @@ section[id] {
   position: absolute;
   left: 0;
   top: 0;
-  filter: blur(4px); /* Ajusta el nivel de difuminado */
+  filter: blur(4px); 
   color: inherit;
-  opacity: 0.6; /* Para que se vea suave */
+  opacity: 0.6; 
   z-index: -1;
 }
 
 
-/* ============================= */
-/* MODAL "VER TODO" EXPERIMENTAL */
-/* ============================= */
+
 
 .exp-modal {
   position: fixed;
   inset: 0;
-  display: none;               /* se muestra con JS */
+  display: none;              
   align-items: center;
   justify-content: center;
   z-index: 20000;
@@ -1813,7 +1710,7 @@ section[id] {
   background: #3a424a;
 }
 
-/* GRID de miniaturas dentro del modal */
+
 .exp-gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -1823,14 +1720,14 @@ section[id] {
 .exp-gallery img,
 .exp-gallery video {
   width: 100%;
-  max-height: 260px;    /* tamaño cómodo */
+  max-height: 260px;   
   border-radius: 12px;
   background: #000;
-  object-fit: contain;  /* 🔥 NO recorta las imágenes */
+  object-fit: contain;  
   display: block;
 }
 
-/* Responsive */
+
 @media (max-width: 768px) {
   .exp-modal-dialog {
     padding: 24px 16px 18px;
@@ -1846,14 +1743,6 @@ section[id] {
 }
 
 
-
-
-
-
-/* =======================================
-   CARRUSEL DE VIDEOS FINAL
-======================================= */
-
 .video-carousel-section {
   background: #f5f5f0;
   padding: 100px 0 120px;
@@ -1861,7 +1750,7 @@ section[id] {
 
 .video-carousel-container {
   position: relative;
-  max-width: 520px;    /* 🔥 Más ancho para que no corte el video */
+  max-width: 520px;   
   margin: 0 auto;
   overflow: hidden;
 }
@@ -1880,8 +1769,8 @@ section[id] {
 }
 
 .video-item video {
-  width: 480px;        /* 🔥 Más ancho (era 360px) */
-  height: 520px;       /* 🔥 Menos alto (era 640px) */
+  width: 480px;       
+  height: 520px;      
   object-fit: cover;
   border-radius: 24px;
   background: #fff;
@@ -1896,10 +1785,10 @@ section[id] {
   background: rgba(0, 0, 0, 0.7);
   color: #fff;
   border: none;
-  width: 70px;        /* 🔥 MÁS GRANDE (era 50px) */
-  height: 70px;       /* 🔥 MÁS GRANDE (era 50px) */
+  width: 70px;       
+  height: 70px;    
   border-radius: 50%;
-  font-size: 28px;    /* 🔥 FLECHA MÁS GRANDE (era 20px) */
+  font-size: 28px;    
   cursor: pointer;
   z-index: 10;
   transition: all 0.3s ease;
@@ -1931,21 +1820,21 @@ section[id] {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.3);  /* 🔥 Dots blancos semi-transparentes */
+  background: rgba(255, 255, 255, 0.3);  
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .video-dot.active {
-  background: #ffffff;  /* 🔥 Dot activo blanco */
+  background: #ffffff;  
   transform: scale(1.2);
 }
 
-/* Responsive */
+
 @media (max-width: 768px) {
   .video-item video {
-    width: 340px;      /* 🔥 Más ancho en móvil */
-    height: 460px;     /* 🔥 Menos alto en móvil */
+    width: 340px;     
+    height: 460px;    
   }
 
   .video-arrow {
@@ -1987,9 +1876,6 @@ section[id] {
 
 
 
-/* =======================================
-   FOOTER
-======================================= */
 
 .site-footer {
   background: #000000;
@@ -2012,7 +1898,7 @@ section[id] {
   letter-spacing: 1.2px;
 }
 
-/* Responsive */
+
 @media (max-width: 600px) {
   .site-footer {
     padding: 15px 0;
@@ -2024,15 +1910,6 @@ section[id] {
 }
 
 
-/* =======================================
-   FIRMA
-======================================= */
-
-
-/* =======================================
-   FIRMA
-======================================= */
-
 .firma-imagen {
   display: block;
   max-width: 200px;
@@ -2040,7 +1917,7 @@ section[id] {
   opacity: 0.9;
 }
 
-/* Para la sección About */
+
 .about-content .firma-imagen {
   margin-top: 40px;
   margin-left: auto;
@@ -2048,16 +1925,16 @@ section[id] {
   filter: brightness(1.1);
 }
 
-/* 🔥 FIRMA EN EL HERO DEL BLOG */
+
 .blog-hero-content .firma-imagen {
   margin-top: 50px;
   margin-left: auto;
-  margin-right: 80px; /* Separación del borde derecho */
+  margin-right: 80px; 
   filter: brightness(1.1);
   max-width: 250px;
 }
 
-/* Responsive */
+
 @media (max-width: 900px) {
   .about-content .firma-imagen,
   .blog-hero-content .firma-imagen {
@@ -2071,14 +1948,6 @@ section[id] {
 }
 
 
-
-
-
-/* =======================================
-   POLÍTICAS - ENLACE Y MODAL
-======================================= */
-
-/* Caja del enlace de políticas */
 .policies-link-container {
   margin-top: 35px;
   padding: 20px;
@@ -2103,7 +1972,6 @@ section[id] {
   transform: translateY(-2px);
 }
 
-/* Modal de políticas */
 .policies-modal {
   position: fixed;
   inset: 0;
@@ -2180,7 +2048,7 @@ section[id] {
   color: #fff;
 }
 
-/* Scrollbar personalizado */
+
 .policies-modal-content::-webkit-scrollbar {
   width: 8px;
 }
@@ -2199,7 +2067,7 @@ section[id] {
   background: #ff6d5d;
 }
 
-/* Responsive */
+
 @media (max-width: 600px) {
   .policies-modal-content {
     padding: 30px 20px;
