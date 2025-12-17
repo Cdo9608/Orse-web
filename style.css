@@ -2118,20 +2118,21 @@ section[id] {
 
 
 /* VIDEOFOLIO dentro de works-left */
+/* VIDEOFOLIO dentro de works-left - Versión más pequeña */
 .videofolio-box {
   position: relative;
   width: 100%;
-  max-width: 280px;
-  min-height: 200px;
+  max-width: 260px;
+  min-height: 160px;
   background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
-  border: 2px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-  padding: 30px 20px;
+  border: 1.5px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 24px 18px;
   cursor: pointer;
   transition: all 0.4s ease;
   text-align: center;
   overflow: hidden;
-  margin-top: 40px;
+  margin-top: 35px;
 }
 
 .videofolio-box::before {
@@ -2144,9 +2145,9 @@ section[id] {
 }
 
 .videofolio-box:hover {
-  transform: translateY(-8px);
-  border-color: rgba(255, 75, 58, 0.5);
-  box-shadow: 0 15px 40px rgba(255, 75, 58, 0.2);
+  transform: translateY(-5px);
+  border-color: rgba(255, 75, 58, 0.4);
+  box-shadow: 0 10px 30px rgba(255, 75, 58, 0.15);
 }
 
 .videofolio-box:hover::before {
@@ -2155,38 +2156,37 @@ section[id] {
 
 .videofolio-title {
   font-family: "Montserrat", sans-serif;
-  font-size: 24px;
-  font-weight: 900;
-  letter-spacing: 2px;
-  margin-bottom: 12px;
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  margin-bottom: 10px;
   color: #fff;
   position: relative;
   z-index: 1;
 }
 
 .videofolio-desc {
-  font-size: 12px;
-  line-height: 1.7;
-  color: rgba(255, 255, 255, 0.7);
-  margin-bottom: 15px;
+  font-size: 11px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.65);
+  margin-bottom: 12px;
   position: relative;
   z-index: 1;
 }
 
 .videofolio-icon {
-  font-size: 24px;
+  font-size: 20px;
   color: #ff4b3a;
-  margin-top: 8px;
+  margin-top: 6px;
   animation: pulse 2s ease-in-out infinite;
   position: relative;
   z-index: 1;
 }
 
 @keyframes pulse {
-  0%, 100% { transform: scale(1); opacity: 0.8; }
-  50% { transform: scale(1.1); opacity: 1; }
+  0%, 100% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.08); opacity: 1; }
 }
-
 
 /* Modal de Videofolio */
 .videofolio-modal {
