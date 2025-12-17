@@ -2112,3 +2112,238 @@ section[id] {
     height: 250px;
   }
 }
+
+
+
+
+
+/* VIDEOFOLIO dentro de works-left */
+.videofolio-box {
+  position: relative;
+  width: 100%;
+  max-width: 280px;
+  min-height: 200px;
+  background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 30px 20px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  text-align: center;
+  overflow: hidden;
+  margin-top: 40px;
+}
+
+.videofolio-box::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 75, 58, 0.05) 0%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.videofolio-box:hover {
+  transform: translateY(-8px);
+  border-color: rgba(255, 75, 58, 0.5);
+  box-shadow: 0 15px 40px rgba(255, 75, 58, 0.2);
+}
+
+.videofolio-box:hover::before {
+  opacity: 1;
+}
+
+.videofolio-title {
+  font-family: "Montserrat", sans-serif;
+  font-size: 24px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+  color: #fff;
+  position: relative;
+  z-index: 1;
+}
+
+.videofolio-desc {
+  font-size: 12px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 15px;
+  position: relative;
+  z-index: 1;
+}
+
+.videofolio-icon {
+  font-size: 24px;
+  color: #ff4b3a;
+  margin-top: 8px;
+  animation: pulse 2s ease-in-out infinite;
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.1); opacity: 1; }
+}
+
+
+/* Modal de Videofolio */
+.videofolio-modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  font-family: "Poppins", sans-serif;
+}
+
+.vf-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+}
+
+.vf-dialog {
+  position: relative;
+  z-index: 1;
+  width: 94%;
+  max-width: 1200px;
+  max-height: 90vh;
+  background: #111418;
+  border-radius: 20px;
+  padding: 30px;
+  overflow-y: auto;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+}
+
+.vf-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.vf-header h3 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 28px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  color: #fff;
+}
+
+.vf-close {
+  background: #22272d;
+  border: 1px solid #444;
+  color: #fff;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s ease;
+}
+
+.vf-close:hover {
+  background: #ff4b3a;
+  transform: rotate(90deg);
+}
+
+.vf-body {
+  margin-bottom: 30px;
+}
+
+.vf-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+}
+
+.vf-video-item {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  background: #000;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.vf-video-item iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.vf-footer {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.vf-footer p {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 15px;
+}
+
+.vf-youtube-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 30px;
+  background: #ff0000;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.vf-youtube-btn:hover {
+  background: #cc0000;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(255, 0, 0, 0.4);
+}
+
+.vf-youtube-btn i {
+  font-size: 18px;
+}
+
+
+@media (max-width: 768px) {
+  .videofolio-box {
+    max-width: 100%;
+    margin-top: 30px;
+  }
+
+  .vf-dialog {
+    padding: 20px 15px;
+  }
+
+  .vf-header h3 {
+    font-size: 20px;
+  }
+
+  .vf-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .vf-youtube-btn {
+    font-size: 12px;
+    padding: 10px 20px;
+  }
+}
+

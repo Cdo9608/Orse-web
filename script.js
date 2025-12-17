@@ -1031,3 +1031,46 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
+
+
+
+
+
+// Modal Videofolio
+document.addEventListener('DOMContentLoaded', function() {
+  const openBtn = document.getElementById('openVideofolio');
+  const modal = document.getElementById('videofolio-modal');
+  const closeBtn = document.querySelector('.vf-close');
+  const backdrop = document.querySelector('.vf-backdrop');
+
+  if (!openBtn || !modal || !closeBtn || !backdrop) return;
+
+  function openModal() {
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    modal.style.display = 'none';
+    document.body.style.overflow = '';
+    
+    // Pausar todos los videos cuando se cierra el modal
+    const iframes = modal.querySelectorAll('iframe');
+    iframes.forEach(iframe => {
+      const src = iframe.src;
+      iframe.src = src; // Recarga el iframe para detener el video
+    });
+  }
+
+  openBtn.addEventListener('click', openModal);
+  closeBtn.addEventListener('click', closeModal);
+  backdrop.addEventListener('click', closeModal);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.style.display === 'flex') {
+      closeModal();
+    }
+  });
+});
+
+
