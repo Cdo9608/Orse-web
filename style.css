@@ -484,9 +484,10 @@ section[id] {
   border-radius: 12px;
   overflow: hidden;
   cursor: pointer;
-  background-size: cover;
+  background-size: contain;  /* ← CAMBIO PRINCIPAL */
   background-position: center;
   background-repeat: no-repeat;
+  background-color: #000;  /* Color de fondo para espacios vacíos */
 }
 
 
