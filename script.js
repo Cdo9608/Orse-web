@@ -83,7 +83,7 @@ const portfolioData = {
 
 
 
-  'DiseÃ±o Editorial': [
+  'Diseño Editorial': [
   
      {
 
@@ -226,7 +226,7 @@ const portfolioData = {
 
   
 
-  'IlustraciÃ³n': [
+  'Ilustración': [
     {
 
       mains: [],
@@ -270,7 +270,7 @@ const portfolioData = {
 
 
 
-  'DiseÃ±o Textil': [
+  'Diseño Textil': [
     {
 
       mains: [],
