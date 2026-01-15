@@ -1,4 +1,3 @@
-
 const words = ["Creando", "Diseñando"];
 let index = 0;
 
@@ -75,7 +74,7 @@ const portfolioData = {
         'imgs/branding/branding_3/branding3.2.png',
         'imgs/branding/branding_3/branding3.4.png',
         'imgs/branding/branding_3/branding3.1.png',
-        'imgs/branding/branding_4/branding4.1.png',
+        'imgs/branding/branding_4/branding4.2.png',
         'imgs/branding/branding_4/branding4.3.png',
         'imgs/branding/branding_4/branding4.4.png',        
       ]
@@ -84,7 +83,7 @@ const portfolioData = {
 
 
 
-  'Diseño Editorial': [
+  'DiseÃ±o Editorial': [
   
      {
 
@@ -169,7 +168,7 @@ const portfolioData = {
         'imgs/logos/logo_3.png',
         'imgs/logos/logo_4.jpg',
         'imgs/logos/logo_5.jpg',
-        'imgs/logos/logo_6.jpg',
+        'imgs/logos/logo_6.png',
         'imgs/logos/logo_7.png',
         'imgs/logos/logo_8.jpg',
         'imgs/logos/logo_9.png',
@@ -227,7 +226,7 @@ const portfolioData = {
 
   
 
-  'Ilustración': [
+  'IlustraciÃ³n': [
     {
 
       mains: [],
@@ -271,7 +270,7 @@ const portfolioData = {
 
 
 
-  'Diseño Textil': [
+  'DiseÃ±o Textil': [
     {
 
       mains: [],
@@ -667,7 +666,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const observer = new MutationObserver(function(mutations) {
     mutations.forEach(function(mutation) {
       if (mutation.addedNodes.length) {
-        // Proteger nuevas imágenes del modal cuando se abra
+        // Proteger nuevas imÃ¡genes del modal cuando se abra
         const newMainImages = document.querySelectorAll('.pm-main-image');
         const newMockups = document.querySelectorAll('.pm-mockup');
         
@@ -701,7 +700,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-//
+
 
 document.addEventListener('DOMContentLoaded', function() {
   
@@ -709,7 +708,6 @@ document.addEventListener('DOMContentLoaded', function() {
   const progressBar = document.querySelector('.carousel-progress-bar');
   const currentCounter = document.querySelector('.carousel-counter .current');
   const totalCounter = document.querySelector('.carousel-counter .total');
-  const carouselSection = document.querySelector('.blog-about-section');
   
   if (!carouselItems.length) return;
   
@@ -719,165 +717,12 @@ document.addEventListener('DOMContentLoaded', function() {
   let progressInterval;
   let slideTimeout;
   let isVideoPlaying = false;
-  let carouselStarted = false; // NUEVA VARIABLE
   
 
   if (totalCounter) {
     totalCounter.textContent = totalItems;
   }
   
-  function updateCarousel() {
-    carouselItems.forEach(item => {
-      item.classList.remove('active');
-      if (item.tagName === 'VIDEO') {
-        item.pause();
-        item.currentTime = 0;
-      }
-    });
-    
-
-    const currentItem = carouselItems[currentIndex];
-    currentItem.classList.add('active');
-    
-
-    if (currentCounter) {
-      currentCounter.textContent = currentIndex + 1;
-    }
-    
-
-    let duration = imageDuration;
-    
-    if (currentItem.tagName === 'VIDEO') {
-      isVideoPlaying = true;
-      currentItem.play();
-      
-
-      if (currentItem.duration && !isNaN(currentItem.duration)) {
-        duration = currentItem.duration * 1000;
-      } else {
-        currentItem.addEventListener('loadedmetadata', function() {
-          duration = this.duration * 1000;
-          startSlideTimer(duration);
-        }, { once: true });
-        return; 
-      }
-    } else {
-      isVideoPlaying = false;
-    }
-    
-    startSlideTimer(duration);
-    startProgress(duration);
-  }
-  
-  function startProgress(duration) {
-    let progress = 0;
-    const increment = 100 / (duration / 100);
-    
-    clearInterval(progressInterval);
-    
-    if (progressBar) {
-      progressBar.style.width = '0%';
-    }
-    
-    progressInterval = setInterval(() => {
-      progress += increment;
-      if (progressBar) {
-        progressBar.style.width = Math.min(progress, 100) + '%';
-      }
-      if (progress >= 100) {
-        clearInterval(progressInterval);
-      }
-    }, 100);
-  }
-  
-  function startSlideTimer(duration) {
-    clearTimeout(slideTimeout);
-    
-    slideTimeout = setTimeout(() => {
-      nextSlide();
-    }, duration);
-  }
-  
-  function nextSlide() {
-    currentIndex = (currentIndex + 1) % totalItems;
-    updateCarousel();
-  }
-  
-  function stopCarousel() {
-    clearTimeout(slideTimeout);
-    clearInterval(progressInterval);
-    
-    const currentItem = carouselItems[currentIndex];
-    if (currentItem && currentItem.tagName === 'VIDEO') {
-      currentItem.pause();
-    }
-  }
-  
-  function resumeCarousel() {
-    if (!carouselStarted) return; // NO REANUDAR SI NO HA INICIADO
-    
-    const currentItem = carouselItems[currentIndex];
-    
-    if (currentItem.tagName === 'VIDEO') {
-      currentItem.play();
-      const remainingTime = (currentItem.duration - currentItem.currentTime) * 1000;
-      startSlideTimer(remainingTime);
-      startProgress(remainingTime);
-    } else {
-      startSlideTimer(imageDuration);
-      startProgress(imageDuration);
-    }
-  }
-  
-  // NUEVA FUNCIÓN: Detectar cuando la sección es visible
-  function checkCarouselVisibility() {
-    if (!carouselSection || carouselStarted) return;
-    
-    const rect = carouselSection.getBoundingClientRect();
-    const windowHeight = window.innerHeight || document.documentElement.clientHeight;
-    
-    // Si la sección está visible en el viewport
-    if (rect.top < windowHeight && rect.bottom > 0) {
-      carouselStarted = true;
-      updateCarousel(); // INICIAR EL CARRUSEL
-    }
-  }
-  
-  // ESCUCHAR EL SCROLL
-  window.addEventListener('scroll', checkCarouselVisibility);
-  window.addEventListener('load', checkCarouselVisibility);
-  
-
-  const carousel = document.querySelector('.blog-about-carousel');
-  if (carousel) {
-    carousel.addEventListener('mouseenter', stopCarousel);
-    carousel.addEventListener('mouseleave', resumeCarousel);
-  }
-  
-  carouselItems.forEach(item => {
-    if (item.tagName === 'VIDEO') {
-      item.addEventListener('ended', () => {
-        if (item.classList.contains('active')) {
-          nextSlide();
-        }
-      });
-    }
-  });
-  
-  document.addEventListener('visibilitychange', () => {
-    if (document.hidden) {
-      stopCarousel();
-    } else {
-      resumeCarousel();
-    }
-  });
-  
-});
-  
-  
-  
-  
-  //
   function updateCarousel() {
     carouselItems.forEach(item => {
       item.classList.remove('active');
@@ -1238,5 +1083,4 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
-
 
