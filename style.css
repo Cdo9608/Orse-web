@@ -29,7 +29,8 @@ body {
   font-family: "Poppins", sans-serif;
   background: #000;
   color: #fff;
-  overflow-x: hidden; /* Importante */
+  overflow-x: hidden;
+  padding-top: 0 !important; /* SOLUCIÓN: Eliminar franja negra en móvil */
 }
 
 /* CORRECCIÓN 1: Hero background fixed causa problemas en móvil */
