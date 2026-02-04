@@ -275,13 +275,19 @@ section[id] {
 .hero {
   position: relative;
   min-height: 100vh;
-  background: url("imgs/fondo.jpg") center 35% / cover no-repeat fixed;
+  background: url("imgs/fondo.jpg") center 35% / cover no-repeat scroll;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   padding: 150px 20px 80px;
   z-index: 5;
+}
+
+@media (min-width: 1025px) {
+  .hero {
+    background-attachment: fixed;
+  }
 }
 
 .hero::after {
@@ -2663,3 +2669,32 @@ section[id] {
 
 
 
+
+/* ============================================
+   CORRECCIONES RESPONSIVE ADICIONALES
+   Para asegurar visualización correcta en móviles
+   ============================================ */
+
+/* Asegurar que logo se adapte en móvil */
+@media (max-width: 768px) {
+  .logo img {
+    height: 50px;
+  }
+  
+  .site-header {
+    height: 70px;
+  }
+}
+
+/* Corrección para blog-hero background fixed */
+@media (max-width: 1024px) {
+  .blog-hero {
+    background-attachment: scroll !important;
+  }
+}
+
+@media (min-width: 1025px) {
+  .blog-hero {
+    background-attachment: fixed;
+  }
+}
