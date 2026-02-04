@@ -275,19 +275,13 @@ section[id] {
 .hero {
   position: relative;
   min-height: 100vh;
-  background: url("imgs/fondo.jpg") center 35% / cover no-repeat scroll;
+  background: url("imgs/fondo.jpg") center 35% / cover no-repeat fixed;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   padding: 150px 20px 80px;
   z-index: 5;
-}
-
-@media (min-width: 1025px) {
-  .hero {
-    background-attachment: fixed;
-  }
 }
 
 .hero::after {
@@ -1996,7 +1990,7 @@ section[id] {
   text-align: center; /* Centra el título */
   width: 100%;
   max-width: 550px; /* Mismo ancho que el video */
-  white-space: nowrap; /* Mantiene el texto en una sola línea */
+  white-space: normal; /* Mantiene el texto en una sola línea */
 }
 
 .video-text-content {
@@ -2168,11 +2162,11 @@ section[id] {
   }
   
   .video-prev {
-    left: -50px;
+    left: 10px;
   }
 
   .video-next {
-    right: -50px;
+    right: 10px;
   }
 }
 
@@ -2671,30 +2665,75 @@ section[id] {
 
 
 /* ============================================
-   CORRECCIONES RESPONSIVE ADICIONALES
-   Para asegurar visualización correcta en móviles
+   CORRECCIONES ADICIONALES PROCESO CREATIVO
    ============================================ */
 
-/* Asegurar que logo se adapte en móvil */
-@media (max-width: 768px) {
-  .logo img {
-    height: 50px;
+@media (max-width: 600px) {
+  .video-carousel-section {
+    padding: 60px 0;
   }
   
-  .site-header {
-    height: 70px;
+  .video-carousel-wrapper {
+    padding: 20px;
+    gap: 40px;
+  }
+  
+  .video-title {
+    font-size: 28px;
+    letter-spacing: 1px;
+    word-wrap: break-word;
+    max-width: 100%;
+  }
+  
+  .video-text-content {
+    max-width: 100%;
+  }
+  
+  .video-text-content p {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+  
+  .video-carousel-container {
+    max-width: 100%;
+    margin: 20px auto 0;
+  }
+  
+  .video-item video {
+    height: 280px;
+  }
+  
+  .video-prev,
+  .video-next {
+    width: 35px;
+    height: 35px;
+    font-size: 14px;
+  }
+  
+  .video-prev {
+    left: 5px;
+  }
+  
+  .video-next {
+    right: 5px;
   }
 }
 
-/* Corrección para blog-hero background fixed */
-@media (max-width: 1024px) {
-  .blog-hero {
-    background-attachment: scroll !important;
+@media (max-width: 480px) {
+  .video-title {
+    font-size: 24px;
+    margin-bottom: 20px;
   }
-}
-
-@media (min-width: 1025px) {
-  .blog-hero {
-    background-attachment: fixed;
+  
+  .video-carousel-wrapper {
+    padding: 15px;
+  }
+  
+  .video-item video {
+    height: 240px;
+  }
+  
+  .video-text-content p {
+    font-size: 13px;
   }
 }
