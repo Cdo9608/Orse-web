@@ -1990,7 +1990,7 @@ section[id] {
   text-align: center; /* Centra el título */
   width: 100%;
   max-width: 550px; /* Mismo ancho que el video */
-  white-space: normal; /* Mantiene el texto en una sola línea */
+  white-space: nowrap; /* Mantiene el texto en una sola línea */
 }
 
 .video-text-content {
@@ -2072,11 +2072,11 @@ section[id] {
 }
 
 .video-prev {
-  left: -70px;
+  left: 10px;
 }
 
 .video-next {
-  right: -70px;
+  right: 10px;
 }
 
 /* DOTS DE NAVEGACIÓN */
@@ -2663,30 +2663,40 @@ section[id] {
 
 
 
-
 /* ============================================
-   CORRECCIONES ADICIONALES PROCESO CREATIVO
+   FIX DEFINITIVO PROCESO CREATIVO
+   Agregar DESPUES de todas las reglas existentes
    ============================================ */
 
-@media (max-width: 600px) {
+/* Sobrescribir el white-space: nowrap del original */
+.video-title {
+  white-space: normal !important;
+  overflow-wrap: break-word !important;
+  word-break: break-word !important;
+}
+
+/* Media query más agresivo para móviles */
+@media (max-width: 768px) {
   .video-carousel-section {
-    padding: 60px 0;
+    padding: 80px 0;
   }
   
   .video-carousel-wrapper {
-    padding: 20px;
+    padding: 30px 20px;
     gap: 40px;
   }
   
   .video-title {
-    font-size: 28px;
-    letter-spacing: 1px;
-    word-wrap: break-word;
-    max-width: 100%;
+    font-size: 28px !important;
+    letter-spacing: 1px !important;
+    line-height: 1.2 !important;
+    max-width: 100% !important;
+    padding: 0 10px;
   }
   
   .video-text-content {
     max-width: 100%;
+    padding: 0 10px;
   }
   
   .video-text-content p {
@@ -2696,44 +2706,79 @@ section[id] {
   
   .video-carousel-container {
     max-width: 100%;
-    margin: 20px auto 0;
+    border-radius: 16px;
   }
   
   .video-item video {
-    height: 280px;
+    height: 300px;
   }
   
-  .video-prev,
-  .video-next {
-    width: 35px;
-    height: 35px;
+  .video-arrow {
+    width: 36px;
+    height: 36px;
     font-size: 14px;
   }
   
   .video-prev {
-    left: 5px;
+    left: 8px !important;
   }
   
   .video-next {
-    right: 5px;
+    right: 8px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .video-title {
+    font-size: 24px !important;
+    letter-spacing: 0.5px !important;
+  }
+  
+  .video-carousel-section {
+    padding: 60px 0;
+  }
+  
+  .video-item video {
+    height: 260px;
   }
 }
 
 @media (max-width: 480px) {
   .video-title {
-    font-size: 24px;
+    font-size: 22px !important;
     margin-bottom: 20px;
   }
   
   .video-carousel-wrapper {
-    padding: 15px;
-  }
-  
-  .video-item video {
-    height: 240px;
+    padding: 20px 15px;
   }
   
   .video-text-content p {
     font-size: 13px;
+  }
+  
+  .video-item video {
+    height: 220px;
+  }
+  
+  .video-arrow {
+    width: 32px;
+    height: 32px;
+    font-size: 12px;
+  }
+  
+  .video-prev {
+    left: 5px !important;
+  }
+  
+  .video-next {
+    right: 5px !important;
+  }
+}
+
+/* Asegurar que en desktop mantenga nowrap */
+@media (min-width: 1201px) {
+  .video-title {
+    white-space: nowrap !important;
   }
 }
