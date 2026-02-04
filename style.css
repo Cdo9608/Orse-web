@@ -1981,16 +1981,18 @@ section[id] {
 
 .video-title {
   font-family: "Montserrat", sans-serif;
-  font-size: 52px;
+  font-size: clamp(22px, 5vw, 52px);
   font-weight: 900;
-  letter-spacing: 2px;
+  letter-spacing: clamp(0.5px, 0.3vw, 2px);
   margin-bottom: 30px;
   color: #1a1a1a;
-  line-height: 1.1;
-  text-align: center; /* Centra el título */
+  line-height: 1.2;
+  text-align: center;
   width: 100%;
-  max-width: 550px; /* Mismo ancho que el video */
-  white-space: nowrap; /* Mantiene el texto en una sola línea */
+  max-width: 550px;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .video-text-content {
