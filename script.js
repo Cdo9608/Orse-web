@@ -1,4 +1,4 @@
-const words = ["Creando", "Diseñando"];
+const words = ["Creamos", "Diseñamos", "Conectamos"];
 let index = 0;
 
 const rotating = document.getElementById("rotating-word");
@@ -666,7 +666,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const observer = new MutationObserver(function(mutations) {
     mutations.forEach(function(mutation) {
       if (mutation.addedNodes.length) {
-        // Proteger nuevas imÃ¡genes del modal cuando se abra
+   
         const newMainImages = document.querySelectorAll('.pm-main-image');
         const newMockups = document.querySelectorAll('.pm-mockup');
         
@@ -1047,7 +1047,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-// Modal Videofolio
+
 document.addEventListener('DOMContentLoaded', function() {
   const openBtn = document.getElementById('openVideofolio');
   const modal = document.getElementById('videofolio-modal');
@@ -1065,11 +1065,11 @@ document.addEventListener('DOMContentLoaded', function() {
     modal.style.display = 'none';
     document.body.style.overflow = '';
     
-    // Pausar todos los videos cuando se cierra el modal
+
     const iframes = modal.querySelectorAll('iframe');
     iframes.forEach(iframe => {
       const src = iframe.src;
-      iframe.src = src; // Recarga el iframe para detener el video
+      iframe.src = src; 
     });
   }
 
@@ -1084,3 +1084,199 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
+
+document.addEventListener('DOMContentLoaded', function() {
+  const openBtn = document.getElementById('openWebfolio');
+  const modal = document.getElementById('webfolio-modal');
+  const closeBtn = modal ? modal.querySelector('.vf-close') : null;
+  const backdrop = modal ? modal.querySelector('.vf-backdrop') : null;
+
+  if (!openBtn || !modal || !closeBtn || !backdrop) return;
+
+  function openModal() {
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    modal.style.display = 'none';
+    document.body.style.overflow = '';
+  }
+
+  openBtn.addEventListener('click', openModal);
+  closeBtn.addEventListener('click', closeModal);
+  backdrop.addEventListener('click', closeModal);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.style.display === 'flex') {
+      closeModal();
+    }
+  });
+});
+
+
+
+const innovacionData = [
+  {
+    titulo: "Proyecto ganador HackDay 2026 <br> <em>Indra Group & Pacífico Business School</em>",
+    texto: "<strong>Carmen Diana Asley Ortiz Segersbol</strong>, cofundadora de Orse Atelier, formó parte del equipo ganador del HackDay con MINDRA|UmaKay, una propuesta de innovación para la salud mental escolar en el Perú. El proyecto integró inteligencia artificial para la detección temprana, orientación y derivación de casos, conectando de forma segura a estudiantes, familias, docentes y servicios de salud. Como parte del diseño de experiencia, se creó una mascota propia pensada para generar cercanía y confianza con niños y adolescentes, la audiencia clave que el proyecto buscaba alcanzar.",
+    fotos: [
+      "imgs/proyectos/h1.jpeg",
+      "imgs/proyectos/h2.png",
+      "imgs/proyectos/animacion1.jpeg"
+    ]
+  },
+ 
+];
+
+document.addEventListener('DOMContentLoaded', function () {
+  const track = document.getElementById('innovacionTrack');
+  const dotsContainer = document.getElementById('innovacionDots');
+  const prevBtn = document.querySelector('.innovacion-prev');
+  const nextBtn = document.querySelector('.innovacion-next');
+  const wrapper = document.querySelector('.innovacion-wrapper');
+
+  if (!track || !dotsContainer || !innovacionData.length) return;
+
+  const PHOTO_DURATION = 3000; // ms que se muestra cada foto
+
+  let currentProject = 0;
+  let currentPhoto = 0;
+  let photoTimer = null;
+  let progressTimer = null;
+
+  // --- Construcción dinámica de slides y dots ---
+  innovacionData.forEach((proyecto, pIndex) => {
+    const slide = document.createElement('div');
+    slide.className = 'innovacion-slide' + (pIndex === 0 ? ' active' : '');
+    slide.dataset.index = pIndex;
+
+    const photosHTML = proyecto.fotos
+      .map((src, i) => `<img src="${src}" alt="${proyecto.titulo} - foto ${i + 1}" class="${i === 0 ? 'active' : ''}">`)
+      .join('');
+
+    slide.innerHTML = `
+      <div class="innovacion-slide-inner">
+        <div class="innovacion-text">
+          <h3 class="innovacion-project-title">${proyecto.titulo}</h3>
+          <p class="innovacion-project-text">${proyecto.texto}</p>
+        </div>
+        <div class="innovacion-photo-carousel">
+          <div class="innovacion-photo-track">
+            ${photosHTML}
+          </div>
+          <div class="innovacion-photo-progress">
+            <div class="innovacion-photo-progress-bar"></div>
+          </div>
+          <div class="innovacion-photo-counter">
+            <span class="current">1</span> / <span class="total">${proyecto.fotos.length}</span>
+          </div>
+        </div>
+      </div>
+    `;
+
+    track.appendChild(slide);
+
+    const dot = document.createElement('span');
+    dot.className = 'innovacion-dot' + (pIndex === 0 ? ' active' : '');
+    dot.dataset.index = pIndex;
+    dot.addEventListener('click', () => goToProject(pIndex));
+    dotsContainer.appendChild(dot);
+  });
+
+  const slides = document.querySelectorAll('.innovacion-slide');
+  const dots = document.querySelectorAll('.innovacion-dot');
+
+  function stopTimers() {
+    clearTimeout(photoTimer);
+    clearInterval(progressTimer);
+  }
+
+  function showSlide(pIndex) {
+    slides.forEach((s, i) => s.classList.toggle('active', i === pIndex));
+    dots.forEach((d, i) => d.classList.toggle('active', i === pIndex));
+  }
+
+  function showPhoto(pIndex, phIndex) {
+    const slide = slides[pIndex];
+    if (!slide) return;
+    const photos = slide.querySelectorAll('.innovacion-photo-track img');
+    photos.forEach((img, i) => img.classList.toggle('active', i === phIndex));
+    const counter = slide.querySelector('.innovacion-photo-counter .current');
+    if (counter) counter.textContent = phIndex + 1;
+  }
+
+  function startProgress() {
+    const bar = slides[currentProject].querySelector('.innovacion-photo-progress-bar');
+    if (!bar) return;
+    let width = 0;
+    bar.style.width = '0%';
+    progressTimer = setInterval(() => {
+      width += 100 / (PHOTO_DURATION / 100);
+      bar.style.width = Math.min(width, 100) + '%';
+    }, 100);
+  }
+
+  function scheduleNextPhoto() {
+    stopTimers();
+    startProgress();
+    photoTimer = setTimeout(nextPhoto, PHOTO_DURATION);
+  }
+
+  function nextPhoto() {
+    const fotos = innovacionData[currentProject].fotos;
+    currentPhoto++;
+
+    if (currentPhoto >= fotos.length) {
+      // Ciclo de fotos del proyecto actual terminado -> pasar al siguiente proyecto
+      currentPhoto = 0;
+      nextProject();
+      return;
+    }
+
+    showPhoto(currentProject, currentPhoto);
+    scheduleNextPhoto();
+  }
+
+  function goToProject(pIndex) {
+    stopTimers();
+    currentProject = pIndex;
+    currentPhoto = 0;
+    showSlide(currentProject);
+    showPhoto(currentProject, 0);
+    scheduleNextPhoto();
+  }
+
+  function nextProject() {
+    const next = (currentProject + 1) % innovacionData.length;
+    goToProject(next);
+  }
+
+  function prevProject() {
+    const prev = (currentProject - 1 + innovacionData.length) % innovacionData.length;
+    goToProject(prev);
+  }
+
+  if (prevBtn) prevBtn.addEventListener('click', prevProject);
+  if (nextBtn) nextBtn.addEventListener('click', nextProject);
+
+  // Pausar al pasar el mouse por encima
+  if (wrapper) {
+    wrapper.addEventListener('mouseenter', stopTimers);
+    wrapper.addEventListener('mouseleave', scheduleNextPhoto);
+  }
+
+  // Pausar si la pestaña no está visible
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      stopTimers();
+    } else {
+      scheduleNextPhoto();
+    }
+  });
+
+  // Inicio
+  showSlide(0);
+  showPhoto(0, 0);
+  scheduleNextPhoto();
+});

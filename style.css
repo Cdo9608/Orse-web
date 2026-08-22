@@ -10,9 +10,6 @@ section {
 }
 
 
-/* Agrega estas correcciones al inicio de tu style.css */
-
-/* SOLUCIÓN PRINCIPAL - Prevenir scroll horizontal */
 html, body {
   overflow-x: hidden;
   width: 100%;
@@ -30,15 +27,15 @@ body {
   background: #000;
   color: #fff;
   overflow-x: hidden;
-  padding-top: 0 !important; /* SOLUCIÓN: Eliminar franja negra en móvil */
+  padding-top: 0 !important; 
 }
 
-/* CORRECCIÓN 1: Hero background fixed causa problemas en móvil */
+
 .hero {
   position: relative;
   min-height: 100vh;
   background: url("imgs/fondo.jpg") center 35% / cover no-repeat;
-  background-attachment: scroll; /* Cambiar de fixed a scroll */
+  background-attachment: scroll;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -47,20 +44,20 @@ body {
   z-index: 5;
 }
 
-/* CORRECCIÓN 2: Títulos muy grandes en móvil */
+
 @media (max-width: 768px) {
   .contact-title-ghost {
-    font-size: 50px; /* Reducir de 60px */
-    letter-spacing: 0.2em; /* Reducir spacing */
+    font-size: 50px; 
+    letter-spacing: 0.2em; 
   }
   
   .blog-hero-title {
-    font-size: 32px; /* Reducir de 40px */
+    font-size: 32px;
   }
   
   .video-title {
-    font-size: 28px; /* Reducir de 32px */
-    white-space: normal; /* Permitir salto de línea */
+    font-size: 28px;
+    white-space: normal;
   }
 }
 
@@ -86,22 +83,22 @@ body {
   }
 }
 
-/* CORRECCIÓN 3: Container debe respetar 100% del viewport */
+
 .container {
   width: 90%;
   max-width: 1300px;
   margin: 0 auto;
-  padding: 0 15px; /* Agregar padding */
+  padding: 0 15px; 
 }
 
-/* CORRECCIÓN 4: Flechas del carrusel que se salen en móvil */
+
 @media (max-width: 768px) {
   .video-prev {
-    left: 5px; /* Ajustar de -50px */
+    left: 5px;
   }
 
   .video-next {
-    right: 5px; /* Ajustar de -50px */
+    right: 5px; 
   }
   
   .video-arrow {
@@ -113,15 +110,15 @@ body {
 
 @media (max-width: 480px) {
   .video-prev {
-    left: 5px; /* Cambiar de 10px */
+    left: 5px; 
   }
 
   .video-next {
-    right: 5px; /* Cambiar de 10px */
+    right: 5px; 
   }
 }
 
-/* CORRECCIÓN 5: Asegurar que sections no se desborden */
+
 section {
   width: 100%;
   max-width: 100vw;
@@ -129,15 +126,15 @@ section {
   background-color: #000;
 }
 
-/* CORRECCIÓN 6: Works section en móvil */
+
 @media (max-width: 1400px) {
   .works-section {
     width: 95%;
-    max-width: 95%; /* Asegurar que no se desborde */
+    max-width: 95%; 
   }
 }
 
-/* CORRECCIÓN 7: Modal debe respetar viewport */
+
 .portfolio-modal,
 .videofolio-modal,
 .exp-modal,
@@ -149,21 +146,21 @@ section {
   overflow-x: hidden;
 }
 
-/* CORRECCIÓN 8: Imágenes que se desbordan */
+
 img, video {
   max-width: 100%;
   height: auto;
 }
 
-/* CORRECCIÓN 9: Blog hero background */
+
 .blog-hero {
-  background-attachment: scroll; /* Cambiar de fixed */
+  background-attachment: scroll;
   background-size: cover;
   background-position: center;
   overflow-x: hidden;
 }
 
-/* CORRECCIÓN 10: Texto que se sale del contenedor */
+
 @media (max-width: 600px) {
   .hero-sub {
     font-size: 14px;
@@ -175,10 +172,10 @@ img, video {
   }
 }
 
-/* CORRECCIÓN ADICIONAL: Prevenir zoom en inputs en iOS */
+
 @media (max-width: 768px) {
   input, textarea, select {
-    font-size: 16px !important; /* iOS no hace zoom si es >= 16px */
+    font-size: 16px !important; 
   }
 }
 
@@ -408,6 +405,9 @@ section[id] {
   padding: 180px 0;
   background: #000;
   color: #fff;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
 }
 
 .about-inner {
@@ -417,11 +417,99 @@ section[id] {
   gap: 60px;
 }
 
-.about-image img {
-  width: 420px;
-  border-radius: 12px;
+.about-team {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 36px;
+  max-width: 460px;
+}
+
+.team-member {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 170px;
+}
+
+.team-circle {
+  position: relative;
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  transition: transform 0.45s ease, border-color 0.45s ease, box-shadow 0.45s ease;
+}
+
+.team-circle img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   display: block;
+  transition: filter 0.45s ease, transform 0.45s ease;
+}
+
+.circle-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 12px;
+  background: rgba(0, 0, 0, 0.55);
+  opacity: 0;
+  transition: opacity 0.45s ease;
+}
+
+.overlay-name {
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #d4af37;
+}
+
+.team-member:hover .team-circle {
+  transform: rotate(-4deg) scale(1.08);
+  border-color: #d4af37;
+  box-shadow: 0 0 22px rgba(212, 175, 55, 0.45);
+}
+
+.team-member:hover .team-circle img {
+  filter: brightness(1.2);
+  transform: rotate(4deg) scale(1.1);
+}
+
+.team-member:hover .circle-overlay {
+  opacity: 1;
+}
+
+.team-name {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+.team-role {
+  font-family: "Poppins", sans-serif;
+  font-size: 11px;
+  font-weight: 300;
+  letter-spacing: 0.3px;
+  text-align: center;
+  opacity: 0.6;
+}
+
+.team-member:hover .team-name {
+  color: #d4af37;
 }
 
 .about-content {
@@ -450,8 +538,19 @@ section[id] {
     text-align: center;
   }
 
-  .about-image img {
-    width: 300px;
+  .about-team {
+    max-width: 100%;
+    gap: 24px;
+  }
+
+  .team-member,
+  .team-circle {
+    width: 130px;
+    height: 130px;
+  }
+
+  .team-member {
+    height: auto;
   }
 
   .about-content {
@@ -1414,7 +1513,7 @@ section[id] {
 }
 
 
-.about-image img {
+.team-circle img {
   pointer-events: none;
   user-select: none;
   -webkit-user-select: none;
@@ -1478,7 +1577,7 @@ section[id] {
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: url('imgs/blog1.png') center/contain no-repeat;
+  background: url('imgs/blog.png') center/contain no-repeat;
   background-color: #000; 
   padding: 150px 20px 100px;
 }
@@ -1933,7 +2032,6 @@ section[id] {
 
 
 
-/* SECCIÓN PROCESO CREATIVO - SOLUCIÓN COMPLETA */
 
 .video-carousel-section {
   background: #f5f5f0;
@@ -1951,7 +2049,8 @@ section[id] {
   padding: 60px 40px;
 }
 
-/* COLUMNA IZQUIERDA - IMAGEN */
+
+
 .video-carousel-left {
   width: 100%;
   display: flex;
@@ -1969,14 +2068,15 @@ section[id] {
   margin: 0;
 }
 
-/* COLUMNA DERECHA - TEXTO Y VIDEOS */
+
 .video-carousel-right {
   padding-left: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding-bottom: 60px;
-  align-items: center; /* Centra todo el contenido */
+  align-items: center;
+  
 }
 
 .video-title {
@@ -1997,8 +2097,8 @@ section[id] {
 
 .video-text-content {
   width: 100%;
-  max-width: 550px; /* Mismo ancho que el video */
-  text-align: center; /* Centra el texto */
+  max-width: 550px; 
+  text-align: center;
 }
 
 .video-text-content p {
@@ -2010,7 +2110,7 @@ section[id] {
   margin-right: auto;
 }
 
-/* CONTENEDOR DEL CARRUSEL - CLAVE PARA CENTRADO */
+
 .video-carousel-container {
   position: relative;
   width: 100%;
@@ -2020,14 +2120,14 @@ section[id] {
   border-radius: 24px;
 }
 
-/* TRACK DEL CARRUSEL */
+
 .video-carousel-track {
   display: flex;
   transition: transform 0.5s ease;
   width: 100%;
 }
 
-/* CADA ITEM DE VIDEO */
+
 .video-item {
   min-width: 100%;
   max-width: 100%;
@@ -2037,7 +2137,7 @@ section[id] {
   align-items: center;
 }
 
-/* VIDEO EN SÍ */
+
 .video-item video {
   width: 100%;
   height: 480px;
@@ -2048,7 +2148,7 @@ section[id] {
   display: block;
 }
 
-/* FLECHAS DE NAVEGACIÓN */
+
 .video-arrow {
   position: absolute;
   top: 50%;
@@ -2081,7 +2181,7 @@ section[id] {
   right: 10px;
 }
 
-/* DOTS DE NAVEGACIÓN */
+
 .video-dots {
   display: flex;
   justify-content: center;
@@ -2107,7 +2207,7 @@ section[id] {
   background: #333;
 }
 
-/* RESPONSIVE */
+
 @media (max-width: 1200px) {
   .video-carousel-wrapper {
     grid-template-columns: 1fr;
@@ -2432,9 +2532,6 @@ section[id] {
 
 
 
-
-
-/* VIDEOFOLIO dentro de works-left */
 .videofolio-box {
   position: relative;
   width: 100%;
@@ -2504,7 +2601,102 @@ section[id] {
   50% { transform: scale(1.08); opacity: 1; }
 }
 
-/* Modal de Videofolio */
+
+.webfolio-box:hover {
+  border-color: rgba(212, 175, 55, 0.5);
+  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.18);
+}
+
+.webfolio-box::before {
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, transparent 100%);
+}
+
+.webfolio-icon {
+  color: #d4af37;
+}
+
+.webfolio-dialog {
+  max-width: 760px;
+}
+
+.webfolio-intro {
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 24px;
+}
+
+.webfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+
+.webfolio-item {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: all 0.3s ease;
+}
+
+.webfolio-item:hover {
+  border-color: rgba(212, 175, 55, 0.4);
+  transform: translateY(-3px);
+}
+
+.webfolio-item h4 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.3px;
+}
+
+.webfolio-item p {
+  font-size: 13px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.65);
+  flex-grow: 1;
+}
+
+.webfolio-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  align-self: flex-start;
+  padding: 10px 20px;
+  background: #d4af37;
+  color: #111;
+  text-decoration: none;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  transition: all 0.3s ease;
+}
+
+.webfolio-link:hover {
+  background: #e8c968;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(212, 175, 55, 0.35);
+}
+
+.webfolio-link i {
+  font-size: 12px;
+}
+
+@media (max-width: 768px) {
+  .webfolio-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+
 .videofolio-modal {
   position: fixed;
   inset: 0;
@@ -2665,19 +2857,13 @@ section[id] {
 
 
 
-/* ============================================
-   FIX DEFINITIVO PROCESO CREATIVO
-   Agregar DESPUES de todas las reglas existentes
-   ============================================ */
-
-/* Sobrescribir el white-space: nowrap del original */
 .video-title {
   white-space: normal !important;
   overflow-wrap: break-word !important;
   word-break: break-word !important;
 }
 
-/* Media query más agresivo para móviles */
+
 @media (max-width: 768px) {
   .video-carousel-section {
     padding: 80px 0;
@@ -2778,9 +2964,246 @@ section[id] {
   }
 }
 
-/* Asegurar que en desktop mantenga nowrap */
+
 @media (min-width: 1201px) {
   .video-title {
     white-space: nowrap !important;
+  }
+}
+
+/* ============================================
+   INNOVACIÓN Y RECONOCIMIENTO
+   ============================================ */
+
+.innovacion-section {
+  background: #fff;
+  padding: 120px 20px;
+  text-align: center;
+}
+
+.innovacion-header {
+  max-width: 700px;
+  margin: 0 auto 60px;
+}
+
+.innovacion-label {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #888;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.innovacion-title {
+  font-family: "Montserrat", serif;
+  font-size: 42px;
+  line-height: 1.2;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.innovacion-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.innovacion-slider {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+}
+
+.innovacion-track {
+  position: relative;
+  width: 100%;
+}
+
+.innovacion-slide {
+  display: none;
+  width: 100%;
+  animation: innovacionFadeIn 0.6s ease;
+}
+
+.innovacion-slide.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes innovacionFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.innovacion-slide-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  width: 100%;
+}
+
+.innovacion-text {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.innovacion-project-title {
+  font-family: "Montserrat", serif;
+  font-size: 26px;
+  color: #1a1a1a;
+  margin-bottom: 16px;
+}
+
+.innovacion-project-text {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #444;
+  margin: 0;
+}
+
+.innovacion-photo-carousel {
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  height: 450px;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #1a1a1a;
+  margin: 0 auto;
+}
+
+.innovacion-photo-track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.innovacion-photo-track img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.innovacion-photo-track img.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.innovacion-photo-progress {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.innovacion-photo-progress-bar {
+  height: 100%;
+  background: #fff;
+  width: 0%;
+}
+
+.innovacion-photo-counter {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  z-index: 10;
+}
+
+.innovacion-arrow {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  background: #fff;
+  color: #1a1a1a;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.innovacion-arrow:hover {
+  background: #1a1a1a;
+  color: #fff;
+  border-color: #1a1a1a;
+}
+
+.innovacion-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.innovacion-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ddd;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.innovacion-dot.active {
+  background: #1a1a1a;
+  width: 24px;
+  border-radius: 4px;
+}
+
+@media (max-width: 900px) {
+  .innovacion-slider {
+    max-width: 100%;
+  }
+
+  .innovacion-photo-carousel {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .innovacion-section {
+    padding: 80px 16px;
+  }
+
+  .innovacion-title {
+    font-size: 32px;
+  }
+
+  .innovacion-photo-carousel {
+    height: 320px;
+    border-radius: 12px;
+  }
+
+  .innovacion-wrapper {
+    gap: 10px;
+  }
+
+  .innovacion-arrow {
+    width: 36px;
+    height: 36px;
+    font-size: 13px;
   }
 }
